@@ -1,8 +1,0 @@
-import random
-
-KREWES = {'orpheus':['john','jeff'],'rex':['ashley','jake'],'endymion':['david','dan']}
-
-def randTeam(dict):
-    return random.choice(dict[random.choice(dict.keys())])
-
-print(randTeam(KREWES))
