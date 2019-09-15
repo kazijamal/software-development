@@ -9,7 +9,7 @@ KREWES = {
     'endymion': ['Grace', 'Nahi', 'Derek', 'Jun Tao', 'Connor', 'Jason', 'Tammy', 'Albert', 'Kazi', 'Derek', 'Brandon', 'Kenneth', 'Lauren', 'Biraj', 'Jeff', 'Jackson', 'Taejoon', 'Kevin', 'Jude', 'Sophie', 'Henry', 'Coby', 'Manfred', 'Leia', 'Ahmed', 'Winston']
 }
 
-# takes a dictionary d of teams as keys with their students as values, and prints a randomly selected team and a randomly selected student from that team
+# takes a dictionary, d, of teams as keys with their students as values, and prints a randomly selected team and a randomly selected student from that team
 
 
 def randStudent(d):
