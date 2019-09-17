@@ -5,32 +5,43 @@
 
 import random
 
+# opens csv file for reading and formats into data
 csv = open("occupations.csv", "r")
 data = csv.read().strip('\n').split('\n')
 
 occupations_dict = {}
 
+# initialilzes dictionary with occupations from csv as keys and the percentage of the U.S. workforce they compromise as values
+
 
 def init_dict():
     for entry in data[1:len(data)-1]:
+        # adds occupations containing commas to dictionary
         if entry.count(',') > 1:
             occupation = entry.strip('"').split('"')
             occupations_dict[occupation[0]] = float(occupation[1].strip(','))
+        # adds occupations without commas to dictionary
         else:
             occupation = entry.split(',')
             occupations_dict[occupation[0]] = float(occupation[1])
 
 
+# closes csv file
 csv.close()
+
+# returns a randomly selected occupation where the results are weighted by the percentage given
 
 
 def random_occupation(dict):
+    # generates random number within [0, total percentage)
     rand = random.random() * float(data[len(data)-1].split(',')[1])
     sum = 0.0
     for occupation in dict:
         sum += dict[occupation]
         if rand < sum:
             return occupation
+
+# tests the random_occupation(dict) function by calling it 1000 times and keeping track of the frequency of generated occupations
 
 
 def testing():
