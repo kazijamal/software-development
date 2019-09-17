@@ -8,12 +8,6 @@ def hello_world():
     return "No hablo queso!"
 
 
-@app.route("/test_static_page")
-def static_page():
-    print("test static page")
-    return app.send_static_file("static_page.html")
-
-
 @app.route('/hello/')
 @app.route('/hello/<name>')
 def hello(name=None):
