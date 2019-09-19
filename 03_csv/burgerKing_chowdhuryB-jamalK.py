@@ -1,6 +1,6 @@
-# Team Burger King - Biraj Chowdhury and Kazi Jamal
-# SoftDev 1 pd9
-# K #06: StI/O: Divine your Destiny!
+# Team Burger King -- Biraj Chowdhury and Kazi Jamal
+# SoftDev1 pd9
+# K06 -- StI/O: Divine your Destiny!
 # 2019-09-17
 
 import random

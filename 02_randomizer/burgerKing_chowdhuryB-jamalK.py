@@ -1,6 +1,6 @@
-# Team Burger King - Biraj Chowdhury and Kazi Jamal
-# SoftDev 1 pd9
-# K #02: NO-body expects the Spanish Inquisition!
+# Team Burger King -- Biraj Chowdhury and Kazi Jamal
+# SoftDev1 pd9
+# K02 -- NO-body expects the Spanish Inquisition!
 # 2019-09-11
 
 import random
