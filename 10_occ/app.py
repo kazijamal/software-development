@@ -6,15 +6,18 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
+
 @app.route("/")
 def root():
     print(__name__)
     return "this is the root"
 
+
 @app.route("/occupyflaskst")
 def occupy():
     print("occupyflaskst")
     return render_template("occupy.html")
+
 
 if __name__ == "__main__":
     app.debug = True
