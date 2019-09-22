@@ -5,14 +5,26 @@
     </head>
     <body>
         <h1>Occupations in the United States</h1>
+        <h3>Team Konstant Acceleration -- Kazi Jamal and Albert Wan</h3>
+        <h3>SoftDev1 pd9</h3>
+        <h3>K10 -- Jinja Tuning</h3>
+        <h3>2019-09-24</h3>
+        <h4>
+            A table of occupations in the United States and the percentage of
+            the workforce they comprise.
+        </h4>
+        <p><b>Randomly Selected Occupation:</b> {{ rand }}</p>
         <table>
             <tr>
                 <th>Job Class</th>
                 <th>Percent</th>
             </tr>
+            {% for key in dict %}
             <tr>
-                {% for %}
+                <td>{{ key }}</td>
+                <td>{{ dict[key] }}</td>
             </tr>
+            {% endfor %}
         </table>
     </body>
 </html>
