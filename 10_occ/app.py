@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route("/")
 def root():
     print(__name__)
-    return "this is the root"
+    return "go to /occupyflaskst route for occupations data"
 
 
 def init_dict():
@@ -22,11 +22,11 @@ def init_dict():
 
     # initialilzes dictionary with occupations from csv as keys and the percentage of the U.S. workforce they compromise as values
     for entry in data[1:]:
-        # adds occupations containing commas to dictionary
+        # adds occupations containing quotations to dictionary
         if entry.count(',') > 1:
             occupation = entry.strip('"').split('"')
             occupations_dict[occupation[0]] = float(occupation[1].strip(','))
-        # adds occupations without commas to dictionary
+        # adds occupations without quotations to dictionary
         else:
             occupation = entry.split(',')
             occupations_dict[occupation[0]] = float(occupation[1])
@@ -39,10 +39,12 @@ def init_dict():
 def random_occupation(dict):
     # generates random number within [0, total percentage)
     rand = random.random() * float(dict["Total"])
-    sum = 0.0
+    bar = 0.0
     for occupation in dict:
-        sum += dict[occupation]
-        if rand < sum:
+        # adds current occupation weight to total sum
+        bar += dict[occupation]
+        # if random number is within current range which is [bar-dict[occupation],bar) return the current occupation
+        if rand < bar:
             return occupation
 
 
