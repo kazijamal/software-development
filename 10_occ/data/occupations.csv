@@ -1,14 +1,14 @@
-Job Class,Percentage
-Management,6.1
-Business and Financial operations,5
-Computer and Mathematical,2.7
-Architecture and Engineering,1.7
-"Life, Physical and Social Science",0.9
-Community and Social Service,1.6
-Legal,0.8
-"Education, training and library",6.1
-"Arts, design, entertainment, sports and media",1.7
-Healthcare practioners and technical,5.5
+Job Class,Percentage,Link
+Management,6.1,https://www.snagajob.com/job-descriptions/manager/
+Business and Financial operations,5,https://datausa.io/profile/soc/business-financial-operations-occupations
+Computer and Mathematical,2.7,https://www.snagajob.com/job-descriptions/manager/
+Architecture and Engineering,1.7,https://datausa.io/profile/cip/1404/
+"Life, Physical and Social Science",0.9,https://datausa.io/profile/soc/life-physical-social-science-occupations
+Community and Social Service,1.6,https://datausa.io/profile/soc/210000/
+Legal,0.8,https://datausa.io/profile/cip/22/
+"Education, training and library",6.1,https://datausa.io/profile/soc/education-training-library-occupations
+"Arts, design, entertainment, sports and media",1.7,https://datausa.io/profile/soc/arts-design-entertainment-sports-media-occupations,https://datausa.io/profile/soc/healthcare-practitioners-technical-occupations-290000
+Healthcare practioners and technical,5.5,https://datausa.io/profile/soc/healthcare-support-occupations-310000
 Healthcare support,2.8
 Protective service,2.3
 Food preparation and serving,8.3
