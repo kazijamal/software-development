@@ -11,25 +11,30 @@ app = Flask(__name__)
 @app.route("/")
 def root():
     print(__name__)
-    return "go to /occupyflaskst route for occupations data"
+    return "go to <a href=\"/occupyflaskst\">/occupyflaskst</a> route for occupations data"
 
 
 def init_dict():
     # opens csv file for reading and formats into data
     csv = open("data/occupations.csv", "r")
     data = csv.read().strip('\n').split('\n')
+    # removes csv header from data list
+    data.pop(0)
     occupations_dict = {}
 
     # initialilzes dictionary with occupations from csv as keys and the percentage of the U.S. workforce they compromise as values
-    for entry in data[1:]:
+    for entry in data:
+        print(entry)
         # adds occupations containing quotations to dictionary
-        if entry.count(',') > 1:
+        if entry.count(',') > 2:
             occupation = entry.strip('"').split('"')
-            occupations_dict[occupation[0]] = float(occupation[1].strip(','))
+            info = occupation[1].strip(',').split(',')
+            occupations_dict[occupation[0]] = [float(info[0]), info[1]]
         # adds occupations without quotations to dictionary
         else:
             occupation = entry.split(',')
-            occupations_dict[occupation[0]] = float(occupation[1])
+            occupations_dict[occupation[0]] = [
+                float(occupation[1]), occupation[2]]
 
     # closes csv and returns dictionary
     csv.close()
@@ -38,11 +43,11 @@ def init_dict():
 
 def random_occupation(dict):
     # generates random number within [0, total percentage)
-    rand = random.random() * float(dict["Total"])
+    rand = random.random() * float(dict["Total"][0])
     bar = 0.0
     for occupation in dict:
         # adds current occupation weight to total sum
-        bar += dict[occupation]
+        bar += dict[occupation][0]
         # if random number is within current range which is [bar-dict[occupation],bar) return the current occupation
         if rand < bar:
             return occupation

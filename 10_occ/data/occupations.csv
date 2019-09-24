@@ -1,24 +1,24 @@
 Job Class,Percentage,Link
-Management,6.1,https://www.snagajob.com/job-descriptions/manager/
+Management,6.1,https://datausa.io/profile/soc/management-occupations
 Business and Financial operations,5,https://datausa.io/profile/soc/business-financial-operations-occupations
-Computer and Mathematical,2.7,https://www.snagajob.com/job-descriptions/manager/
-Architecture and Engineering,1.7,https://datausa.io/profile/cip/1404/
+Computer and Mathematical,2.7,https://datausa.io/profile/soc/computer-mathematical-occupations
+Architecture and Engineering,1.7,https://datausa.io/profile/soc/architecture-engineering-occupations
 "Life, Physical and Social Science",0.9,https://datausa.io/profile/soc/life-physical-social-science-occupations
 Community and Social Service,1.6,https://datausa.io/profile/soc/210000/
 Legal,0.8,https://datausa.io/profile/cip/22/
 "Education, training and library",6.1,https://datausa.io/profile/soc/education-training-library-occupations
 "Arts, design, entertainment, sports and media",1.7,https://datausa.io/profile/soc/arts-design-entertainment-sports-media-occupations,https://datausa.io/profile/soc/healthcare-practitioners-technical-occupations-290000
-Healthcare practioners and technical,5.5,https://datausa.io/profile/soc/healthcare-support-occupations-310000
-Healthcare support,2.8
-Protective service,2.3
-Food preparation and serving,8.3
-Building and grounds cleaning and maintenance,3.7
-Personal care and service,4
-Sales,10.2
-Office and administrative support,15.1
-"Farming, fishing and forestry",0.6
-Construction and extraction,4.3
-"Installation, maintenance and repair",3.8
-Production,6.1
-Transportation and material moving,6.5
-Total,99.8
+Healthcare practitioners and technical,5.5,https://datausa.io/profile/soc/healthcare-support-occupations-310000
+Healthcare support,2.8,https://datausa.io/profile/soc/healthcare-support-occupations-310000
+Protective service,2.3,https://datausa.io/profile/soc/protective-service-occupations-330000
+Food preparation and serving,8.3,https://datausa.io/profile/soc/food-preparation-serving-related-occupations-350000
+Building and grounds cleaning and maintenance,3.7,https://datausa.io/profile/soc/building-grounds-cleaning-maintenance-occupations-370000
+Personal care and service,4,https://datausa.io/profile/soc/390000/
+Sales,10.2,https://datausa.io/profile/soc/410000/
+Office and administrative support,15.1,https://datausa.io/profile/soc/430000/
+"Farming, fishing and forestry",0.6,https://datausa.io/profile/soc/farming-fishing-forestry-occupations-450000
+Construction and extraction,4.3,https://datausa.io/profile/soc/construction-extraction-occupations-470000
+"Installation, maintenance and repair",3.8,https://datausa.io/profile/soc/installation-maintenance-repair-occupations
+Production,6.1,https://datausa.io/profile/soc/510000/
+Transportation and material moving,6.5,https://datausa.io/profile/soc/530000/
+Total,99.8,

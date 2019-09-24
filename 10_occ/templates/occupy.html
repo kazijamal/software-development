@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Occupations in the United States</title>
+        <title>Konstant Acceleration 10_occ</title>
     </head>
     <body>
         <h1>Occupations in the United States</h1>
@@ -18,11 +18,19 @@
             <tr>
                 <th>Job Class</th>
                 <th>Percent</th>
+                <th>Link to Help Get Started in the Field</th>
             </tr>
-            {% for key in dict %}
+            {# iterates through passed dictionary variable #} {% for key in dict
+            %}
             <tr>
+                {# Job Class #}
                 <td>{{ key }}</td>
-                <td>{{ dict[key] }}</td>
+                {# Percentage #}
+                <td>{{ dict[key][0] }}</td>
+                {# Link to Help Get Started in the Field #}
+                <td>
+                    <a href="{{ dict[key][1] }}">{{ dict[key][1] }}</a>
+                </td>
             </tr>
             {% endfor %}
         </table>
