@@ -18,7 +18,7 @@ def auth():
     print(app)
     print(request)
     print(request.args)
-    return "aaaaa"
+    return request.args["username"]
 
 if __name__ == "__main__":
     app.debug = True
