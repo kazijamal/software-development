@@ -32,18 +32,18 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/auth")
+@app.route("/auth", methods=["GET", "POST"])
 def auth():
     print("\n\n\n")
     print("***DIAG: this Flask obj ***")
     print(app)
     print("***DIAG: request obj ***")
     print(request)
-    print("***DIAG: request.args ***")
-    print(request.args)
-    if request.args['username'] == testuser:
-        if request.args['password'] == testpass:
-            session['username'] = request.args['username']
+    print("***DIAG: request.form ***")
+    print(request.form)
+    if request.form['username'] == testuser:
+        if request.form['password'] == testpass:
+            session['username'] = request.form['username']
             return redirect(url_for('welcome'))
         else:
             print("invalid password")
