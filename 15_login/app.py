@@ -41,21 +41,24 @@ def auth():
     print(request)
     print("***DIAG: request.form ***")
     print(request.form)
+    print("\n\n\n")
     if request.form['username'] == testuser:
         if request.form['password'] == testpass:
             session['username'] = request.form['username']
             return redirect(url_for('welcome'))
         else:
             print("invalid password")
-            return redirect(url_for('login'))
+            return error("Invalid Password")
+            # return redirect(url_for('login'))
     else:
         print("invalid username")
-        return redirect(url_for('login'))
+        return error("Invalid Username")
+        # return redirect(url_for('login'))
 
 
 @app.route("/error")
-def error():
-    return render_template("error.html")
+def error(message):
+    return render_template("error.html", error=message)
 
 
 @app.route("/logout")
