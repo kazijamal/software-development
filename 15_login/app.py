@@ -32,7 +32,7 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/auth", methods=["GET", "POST"])
+@app.route("/auth", methods=["POST"])
 def auth():
     print("\n\n\n")
     print("***DIAG: this Flask obj ***")
@@ -56,7 +56,6 @@ def auth():
         # return redirect(url_for('login'))
 
 
-@app.route("/error")
 def error(message):
     return render_template("error.html", error=message)
 
