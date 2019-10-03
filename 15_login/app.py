@@ -1,3 +1,8 @@
+# Team Krispy Kreme - Kenneth Chin and Kazi Jamal
+# SoftDev1 pd9
+# K15 -- Do I Know You?
+# 2019-10-04
+
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -35,7 +40,7 @@ def welcome():
 def login():
     return render_template("login.html")
 
-# handles login request and redirects to welcome after adding username to session or returns an error
+# handles login request
 @app.route("/auth", methods=["POST"])
 def auth():
     print("\n\n\n")
@@ -47,17 +52,19 @@ def auth():
     print(request.form)
     print("\n\n\n")
     if request.form['username'] == testuser:
+        # if correct username/password combination, add username to session and redirect to welcome route
         if request.form['password'] == testpass:
             session['username'] = request.form['username']
             return redirect(url_for('welcome'))
+        # if invalid password return error
         else:
             print("invalid password")
             return error("Invalid Password")
-            # return redirect(url_for('login'))
+    # if invalid username return error
     else:
         print("invalid username")
         return error("Invalid Username")
-        # return redirect(url_for('login'))
+
 
 # returns a page with provided error message
 def error(message):
@@ -68,6 +75,7 @@ def error(message):
 def logout():
     session.pop('username')
     return redirect(url_for('root'))
+
 
 if __name__ == "__main__":
     app.debug = True
