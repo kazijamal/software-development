@@ -29,7 +29,7 @@ def root():
     # redirects to login page if no user logged in
     return redirect(url_for('login'))
 
-# has log out button to log out
+# welcome page with log out button to log out of session
 @app.route("/welcome")
 def welcome():
     if "username" not in session:
@@ -52,13 +52,18 @@ def auth():
     print(request)
     print("***DIAG: request.form ***")
     print(request.form)
+    user = request.form['username']
     print("\n\n\n")
     '''
     user = request.form['username']
     if user == testuser:
         # if correct username/password combination, add username to session and redirect to welcome route
         if request.form['password'] == testpass:
+            # print("***DIAG: session before adding user***")
+            # print(session)
             session['username'] = user
+            # print("***DIAG: session after adding user ***")
+            # # print(session)
             flash("Welcome " + user + ". You are logged in.")
             return redirect(url_for('welcome'))
         # if invalid password flash error and redirect to login route
@@ -73,10 +78,10 @@ def auth():
 # removes session data for username
 @app.route("/logout")
 def logout():
-    # print("***DIAG: session ***")
+    # print("***DIAG: session before removing user***")
     # print(session)
     session.pop('username')
-    # print("***DIAG: session ***")
+    # print("***DIAG: session after removing user ***")
     # print(session)
     return redirect(url_for('root'))
 
