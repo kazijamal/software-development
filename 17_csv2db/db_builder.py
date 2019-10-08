@@ -1,26 +1,45 @@
-#Clyde "Thluffy" Sinclair
-#SoftDev  
-#skeleton :: SQLITE3 BASICS
-#Oct 2019
+# Team Night Knight - Kazi Jamal and Nahi Khan
+# SoftDev1 pd9
+# K17 -- No Trouble
+# 2019-10-10
 
-import sqlite3   #enable control of an sqlite database
-import csv       #facilitate CSV I/O
+import sqlite3  # enable control of an sqlite database
+import csv      # facilitate CSV I/O
 
+DB_FILE="school.db"
 
-DB_FILE="discobandit.db"
+db = sqlite3.connect(DB_FILE)   # open if file exists, otherwise create
+c = db.cursor()                 # facilitate db ops
 
-db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
-c = db.cursor()               #facilitate db ops
+#=======================================================================
 
-#==========================================================
+# students table
 
-# < < < INSERT YOUR POPULATE-THE-DB CODE HERE > > >
+with open('students.csv') as studentscsv:
+    studentsReader = csv.DictReader(studentscsv)
+    # creates students table
+    createCommand = "CREATE TABLE students (name TEXT, age INTEGER, id INTEGER PRIMARY KEY);"
+    c.execute(createCommand)
+    # iterates through rows in csv as dictionaries
+    for row in studentsReader:
+        # inserts data from the current row into the students table
+        insertCommand = "INSERT INTO students VALUES (\"{}\", {}, {});".format(row['name'], row['age'], row['id'])
+        c.execute(insertCommand)
 
+# courses table
 
-command = ""          # test SQL stmt in sqlite3 shell, save as string
-c.execute(command)    # run SQL statement
+with open('courses.csv') as coursescsv:
+    coursesReader = csv.DictReader(coursescsv)
+    # creates courses table
+    createCommand = "CREATE TABLE courses (code TEXT, mark INTEGER, id);"
+    c.execute(createCommand)
+    # iterates through rows in csv as dictionaries
+    for row in coursesReader:
+        # inserts data from the current row into the courses table
+        insertCommand = "INSERT INTO courses VALUES (\"{}\", {}, {})".format(row['code'], row['mark'], row['id'])
+        c.execute(insertCommand)
 
-#==========================================================
+#=======================================================================
 
-db.commit() #save changes
-db.close()  #close database
+db.commit() # save changes
+db.close()  # close database
