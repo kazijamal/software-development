@@ -61,15 +61,17 @@ def createAvgTable():
         c.execute(insertCommand)
 
 # function to faciliate adding rows to the courses table
-def addCourses():
-    # INSERT CODE FOR ADDING COURSES FROM UPDATED CSV HERE
+def addCourses(code, id, mark):
+    # adds a new row given the parameters code (string), id (integer), and mark (integer)
+    c.execute('INSERT INTO courses VALUES(?,?,?)', (code, id, mark))
+    c.execute('SELECT * FROM courses')
 
+addCourses("health", 12, 1)
 initDict()
 studentsGrades()
 studentsAverages()
 printAverages()
 createAvgTable()
-addCourses()
 
 db.commit() # save changes
 db.close() # close database
