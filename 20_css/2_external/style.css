@@ -1,0 +1,45 @@
+body {
+    font-family: sans-serif;
+    background-color: #666666;
+}
+
+.header {
+    text-align: center;
+    background-color: #BDBDBD;
+    color: white;
+    padding: 3px;
+    margin: 0;
+}
+
+.main {
+    background-color: #757575;
+    padding: 1px;
+}
+
+.nav {
+    float: left;
+    padding-left: 10px;
+}
+
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.content {
+    margin-left: 175px;
+    margin-right: 10px;
+}
+
+.footer {
+    background-color: #575757;
+    text-align: right;
+    color: gray;
+    padding: 10px;
+}
