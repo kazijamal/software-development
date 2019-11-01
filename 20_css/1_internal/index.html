@@ -1,33 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Clyde "Thluffy" Sinclair
-       SoftDev pd0
+  <!-- Team Comic Sans -- Kazi Jamal & Leia Park
+       SoftDev pd9
        K20 -- CSS basics
        2019-11-01f
 
-	 WORK FILE for CSS 	
+       Lorem Ipsum Generator: https://pirateipsum.me/
+
+       WORK FILE for CSS 	
     -->
 
   <head>
     <meta charset="utf-8"/>
     <title>foo title</title>
+
+    <style>
+      body {
+	  font-family: sans-serif;
+	  background-color: #666666;
+      }
+      
+      .header {
+	  text-align: center;
+	  background-color: #BDBDBD;
+	  color: white;
+	  padding: 3px;
+	  margin: 0;
+      }
+      
+      .main {
+	  background-color: #757575;
+	  padding: 1px;
+      }
+
+      .nav {
+	  float: left;
+	  padding-left: 10px;
+      }
+
+      .nav ul {
+	  list-style: none;
+	  margin: 0;
+	  padding: 0;
+      }
+
+      .nav a {
+	  color: white;
+	  text-decoration: none;
+      }
+
+      .content {
+	  margin-left: 175px;
+	  margin-right: 10px;
+      }
+
+      .footer {
+	  background-color: #575757;
+	  text-align: right;
+	  color: gray;
+	  padding: 10px;
+      }
+    </style>
   </head>
 
   <body>
-    <h1>foo heading 1</h1>
-    <h3>nav foo</h3>
-    <ul>
-      <li><a href="">dis</a></li>
-      <li><a href="">dat</a></li>
-      <li><a href="">de udda ting</a></li>
-    </ul>
-    <h2>main foo heading</h2>
-    <p>tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk 
+    
+    <h1 class="header">foo heading 1</h1>
+    
+    <div class="main">
+      <div class="nav">
+	<h3>nav foo</h3>
+	<ul>
+	  <li><a href="">dis</a></li>
+	  <li><a href="">dat</a></li>
+	  <li><a href="">de udda ting</a></li>
+	</ul>
+      </div>
 
-      <br>
-      <br>
+      <div class="content">
+	<h2>main foo heading</h2>
+	<p>Pirate Round crimp line yo-ho-ho red ensign landlubber or just lubber bilge water topmast Blimey hornswaggle. Skysail cable hornswaggle Pieces of Eight fire in the hole mizzenmast sheet six pounders man-of-war Arr. Code of conduct nipper Brethren of the Coast skysail brig gun yo-ho-ho capstan trysail wench. 
+	  <br>
+	  <br>
+	  Fire ship brigantine aft Admiral of the Black bilge avast hail-shot ahoy splice the main brace scallywag. Run a rig sutler topsail Davy Jones' Locker spike belay gibbet broadside bilge Pieces of Eight. Spanish Main transom six pounders red ensign cutlass league crack Jennys tea cup mizzenmast gibbet American Main.
+      </div>
+    </div>
 
+    <div class="footer">
       Copyright &copy; 2016 Clyde "Thluffy" Sinclair
+    </div>
 
   </body>
 
