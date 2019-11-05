@@ -1,13 +1,81 @@
 <!DOCTYPE html>
 <html>
   
-  <head>
+  <head lang="en">
     <title>Foundation Showcase -- Team koalas</title>
+    <meta charset="utf-8"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css">
   </head>
   
   <body>
-    <h1>Hello, world!</h1>
+
+    <div class="top-bar">
+      <div class="top-bar-left">
+	<ul class="dropdown menu" data-dropdown-menu>
+	  <li class="menu-text">Team Koalas -- Tammy Chen & Kazi Jamal</li>
+	  <li><a href="#switch">Switch</a></li>
+	  <li><a href="#buttons">Buttons</a></li>
+	  <li><a href="#video">Video</a></li>
+	</ul>
+      </div>
+      <div class="top-bar-right">
+	<ul class="menu">
+	  <li><input type="search" placeholder="Search"></li>
+	  <li><button type="button" class="button">Search</button></li>
+	</ul>
+      </div>
+    </div>
+    
+    <div class="callout success text-center py-5">
+      <h1 class="subheader">Team koalas Presents</h1>
+      <h1>Foundation Showcase</h1>
+    </div>
+
+    <div id="switch" class="callout warning text-center">
+      <h4>Activate the switch to become a 10x programmer</h4>
+      <div class="switch large">
+	<input class="switch-input" id="switch" type="checkbox" name="switch">
+	<label class="switch-paddle" for="switch">
+	  <span class="show-for-sr">Become 10x Programmer</span>
+	  </label>
+      </div>
+      <div class="primary progress">
+	<div class="progress-meter" style="width: 75%">
+	  <p class="progress-meter-text">Big Brain 75% activated</p>
+	</div>
+      </div>
+    </div>
+    
+    <div id="buttons" class="callout primary text-center">
+      <h4>You want buttons? We got all the buttons!</h4>
+      <button type="button" class="success button">Save</button>
+      <button type="button" class="alert button">Delete</button>
+      <a class="tiny button" href="#0">So Tiny</a>
+      <a class="small button" href="#0">So Small</a>
+      <a class="large button" href="#0">So Large</a>
+      <a class="expanded button" href="#0">Such Expand Much Wow</a>
+    </div>
+    
+    <div id="video" class="text-center">
+      <h4>Heres a video!</h4>
+      <div class="responsive-embed">
+	<iframe src="https://www.youtube.com/embed/oI3ADcDH0Uc"></iframe>
+      </div>
+      <h5>Fun Fact: Koalas spend <span class="stat">90%</span> of their day sleeping. Thats a <i>koality</i> sleep!</h5>
+    </div>
+
+    <div class="callout alert text-center">
+      <h6>Here, try going to a different page</h6>
+      <ul class="pagination" role="navigation" aria-label="Pagination">
+	<li class="disabled">Previous <span class="show-for-sr">page</span></li>
+	<li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+	<li><a href="#0" aria-label="Page 2">2</a></li>
+	<li><a href="#0" aria-label="Page 3">3</a></li>
+	<li><a href="#0" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
+      </ul>
+      <h6>Sike theres only one page</h6>
+    </div>
+    
   </body>
   
 </html>
