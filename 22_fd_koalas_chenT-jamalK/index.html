@@ -7,28 +7,58 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css">
   </head>
   
-  <body>
+  <body> 
 
-    <div class="top-bar">
+    <header class="top-bar" id="backup">
       <div class="top-bar-left">
-	<ul class="dropdown menu" data-dropdown-menu>
-	  <li class="menu-text">Team Koalas -- Tammy Chen & Kazi Jamal</li>
-	  <li><a href="#switches">Switch</a></li>
-	  <li><a href="#buttons">Buttons</a></li>
-	  <li><a href="#video">Video</a></li>
-	</ul>
+      	<ul class="dropdown menu" data-dropdown-menu>
+      	  <li class="menu-text">Team Koalas -- Tammy Chen & Kazi Jamal</li>
+          <li><a href="#form">Form</a></li>
+          <li><a href="#switch">Switch</a></li>
+      	  <li><a href="#buttons">Buttons</a></li>
+      	  <li><a href="#video">Video</a></li>
+          <li><a href="#howto">How2Foundation</a></li>
+      	</ul>
       </div>
+
       <div class="top-bar-right">
-	<ul class="menu">
-	  <li><input type="search" placeholder="Search"></li>
-	  <li><button type="button" class="button">Search</button></li>
-	</ul>
+      	<ul class="menu">
+      	  <li><input type="search" placeholder="Nothing to search here"></li>
+      	  <li><button type="button" class="button">Search</button></li>
+      	</ul>
       </div>
-    </div>
-    
+    </header>
+
     <div class="callout success text-center py-5">
       <h1 class="subheader">Team koalas Presents</h1>
       <h1>Foundation Showcase</h1>
+    </div>
+
+    <div id="form">
+      <form>
+        <div class="grid-container">
+          <div class="grid-x grid-padding-x">
+            <div class="medium-6 cell">
+              <label>Username
+                <input type="text" placeholder="enter (this is also a cell)">
+              </label>
+            </div>
+            <div class="medium-6 cell">
+              <label>Password
+                <input type="password" placeholder="enter (size of 6)">
+              </label>
+            </div>
+            <div class="float-center">
+              <fieldset class="fieldset">
+                <legend>Check these out</legend>
+                <input id="checkbox12" type="checkbox"><label for="checkbox12">Checkbox 1</label>
+                <input id="checkbox22" type="checkbox"><label for="checkbox22">Checkbox 2</label>
+                <input id="checkbox32" type="checkbox"><label for="checkbox32">Checkbox 3</label>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
 
     <div id="switches" class="callout warning text-center">
@@ -50,10 +80,10 @@
       <h4>You want buttons? We got all the buttons!</h4>
       <button type="button" class="success button">Save</button>
       <button type="button" class="alert button">Delete</button>
-      <a class="tiny button" href="#">So Tiny</a>
-      <a class="small button" href="#">So Small</a>
-      <a class="large button" href="#">So Large</a>
-      <a class="expanded button" href="#">Such Expand Much Wow</a>
+      <a class="tiny button">So Tiny</a>
+      <a class="small button">So Small</a>
+      <a class="large button">So Large</a>
+      <a class="expanded button">Such Expand Much Wow</a>
     </div>
     
     <div id="video" class="text-center">
@@ -64,18 +94,32 @@
       <h5>Fun Fact: Koalas spend <span class="stat">90%</span> of their day sleeping. Thats a <i>koality</i> sleep!</h5>
     </div>
 
-    <div class="callout alert text-center">
+    <div class="callout secondary text-center">
       <h6>Here, try going to a different page</h6>
       <ul class="pagination" role="navigation" aria-label="Pagination">
 	<li class="disabled">Previous <span class="show-for-sr">page</span></li>
 	<li class="current"><span class="show-for-sr">You're on page</span> 1</li>
-	<li><a href="#0" aria-label="Page 2">2</a></li>
-	<li><a href="#0" aria-label="Page 3">3</a></li>
-	<li><a href="#0" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
+	<li><a aria-label="Page 2">2</a></li>
+	<li><a aria-label="Page 3">3</a></li>
+	<li><a aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
       </ul>
       <h6>Sike theres only one page</h6>
     </div>
-    
+
+    <div class="text-center" id="howto">
+      <h2>How to Use Foundation w/o Downloading Everthing </h2>
+      <p> Add this into the head of your HTML file & you are good to go! </p>
+      <code>
+        &ltlink rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css"&gt
+      </code>
+    </div>
+
+    <hr>
+
+    <footer class="callout alert text-center">
+      <p class="text-center">&copy; koalas 2019!</p>
+      <p class="text-center"><a href="#backup">Go to Top</a></p>
+    </footer>
   </body>
   
 </html>
