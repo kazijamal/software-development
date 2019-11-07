@@ -1,19 +1,19 @@
-<!-- 
-Team koalas -- Tammy Chen and Kazi Jamal
-SoftDev1 pd9
-K22 -- Who Does Frame Work For?
-2019-11-07
--->
+<!--
+    Team koalas -- Tammy Chen and Kazi Jamal
+    SoftDev1 pd9
+    K22 -- Who Does Frame Work For?
+    2019-11-07
+  -->
 
 <!DOCTYPE html>
 <html>
-  
+
   <head lang="en">
     <title>Foundation Showcase -- Team koalas</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css">
   </head>
-  
+
   <body>
 
     <header class="top-bar" id="backup">
@@ -23,8 +23,9 @@ K22 -- Who Does Frame Work For?
           <li><a href="#howto">How2Foundation</a></li>
 	  <li><a href="#typography">Typography</a></li>
           <li><a href="#form">Form</a></li>
+          <li><a href="#table">Table</a></li>
           <li><a href="#grid">Grid</a></li>
-          <li><a href="#control">Control</a></li>
+          <li><a href="#controls">Controls</a></li>
       	  <li><a href="#video">Video</a></li>
       	</ul>
       </div>
@@ -44,26 +45,31 @@ K22 -- Who Does Frame Work For?
 
     <div class="callout primary text-center" id="howto">
       <h2>How to Use Foundation w/o Downloading Everything </h2>
+      <hr>
       <p> Add this into the head of your HTML file & you are good to go! </p>
       <code>
         &ltlink rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css"&gt
       </code>
-      <hr>
-      <p>You can even use keystrokes! <kbd>Ctrl+C</kbd> or <kbd>Cmd+C</kbd> and <kbd>Ctrl+V</kbd> or <kbd>Cmd+C</kbd>to copy and paste the link to the CDN</p>
+      <br><br>
+      <p>You can even use keystrokes! <kbd>Ctrl+C</kbd> or <kbd>Cmd+C</kbd> and <kbd>Ctrl+V</kbd> or <kbd>Cmd+C</kbd>to copy and paste the code above</p>
     </div>
 
-    <div id="typography" class="callout warning">
-      <h1>This is a h1.</h1>
-      <h2>This is a h2.</h2>
-      <h3>This is a h3. <small>This part of the header is small</small></h3>
-      <p>This is a paragraph, very cool paragraph</p>
+    <div id="typography" class="callout warning text-center">
+      <h5>The different sections of this website are in <code>.callout</code> containers</h5>
+      <p>Callouts can be colored using the <code>.secondary</code>, <code>.primary</code>, <code>.success</code>, <code>.warning</code>, or <code>.alert</code> classes. Links inside the callout will be tinted to match the color of the callout.</p>
+      <h1>This is a <code>h1</code></h1>
+      <h2>This is a <code>h2</code></h2>
+      <h3>This is a <code>h3</code>, and <small>this part of the header is <code>small</code></small></h3>
+      <p>This is a <code>p</code>, very cool paragraph</p>
       <blockquote>
-	In the beginning the Universe was created. This has made a lot of people very angry and had been widely regarded as a bad move.
-	<cite>Douglas Adams</cite>
+    	In the beginning the Universe was created. This has made a lot of people very angry and had been widely regarded as a bad move.
+    	<cite>Douglas Adams</cite>
       </blockquote>
     </div>
 
-    <div id="form" class="callout alert">
+    <div id="form" class="text-center callout alert">
+      <h2>This is an example of a form</h2>
+      <hr>
       <form>
         <div class="grid-container">
           <div class="grid-x grid-padding-x">
@@ -79,7 +85,7 @@ K22 -- Who Does Frame Work For?
             </div>
             <div class="float-center">
               <fieldset class="fieldset">
-                <legend>Check these out</legend>
+                <legend>Check this fieldset out</legend>
                 <input id="checkbox12" type="checkbox"><label for="checkbox12">Checkbox 1</label>
                 <input id="checkbox22" type="checkbox"><label for="checkbox22">Checkbox 2</label>
                 <input id="checkbox32" type="checkbox"><label for="checkbox32">Checkbox 3</label>
@@ -90,19 +96,97 @@ K22 -- Who Does Frame Work For?
       </form>
     </div>
 
-    <div id="control" class="callout warning text-center">
+    <div id="table" class="callout success">
+      <h2 class="text-center">Learn about koalas with this handy little table!</h2>
+      <hr>
+      <p class="text-center">The <code>.hover</code> class spices things up a bit</p>
+      <table class="hover">
+	<thead>
+	  <tr>
+	    <th width="200">Koala Types</th>
+	    <th>Description</th>
+	    <th width="150">Color of Fur</th>
+	    <th width="150">Thickness of Fur</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+	    <td>Brown Koalas</td>
+	    <td>Little known fact: brown koalas are brown, and they are closely related to wombats.</td>
+	    <td>brown</td>
+	    <td>kinda thick</td>
+	  </tr>
+	  <tr>
+	    <td>Gray Koalas</td>
+	    <td>These koalas are just gray, and thats kind of boring but its fine because they are still koalas.</td>
+	    <td>gray</td>
+	    <td>thick</td>
+	  </tr>
+	  <tr>
+	    <td>Gray Brown Koalas</td>
+	    <td>Wow, these koalas are gray and brown?! Thats like, a combination of two colors.</td>
+	    <td>gray brown</td>
+	    <td>extra thick</td>
+	  </tr>
+	</tbody>
+      </table>
+    </div>
+
+    <div id="grid" class="grid-y medium-grid-frame primary callout text-center">
+      <div class="cell shrink header medium-cell-block-container">
+        <h1>All About Koalas</h1>
+	<h3>This section uses the XY Grid system</h3>
+	<h5>The three divs underneath this header have <code>.cell</code> and <code>.medium-4</code> classes which split the grid-x of 12 cells into 3 divs of 4 cells each on a medium sized viewport</h5>
+        <div class="grid-x grid-padding-x">
+          <div class="cell medium-4"> Amazing Animals </div>
+          <div class="cell medium-4 medium-cell-block">
+            <p style="width:80vw;">scroll --> you don't see me anything wowo</p>
+          </div>
+          <div class="cell medium-4">
+            hehe koalas &#128040
+          </div>
+        </div>
+      </div>
+      <hr>
+      <h5>The two divs underneath this header have <code>.cell</code>, <code>.medium-4</code>, and <code>.medium-8</code> classes which split the grid-x of 12 cells into 2 divs of 4 cells and 8 cells each on a medium sized viewport</h5>
+      <div class="cell medium-auto medium-cell-block-container">
+        <div class="grid-x grid-padding-x">
+          <div class="cell medium-4 medium-cell-block-y">
+            <h4>Things you never knew</h4>
+            <p>"The word koala comes from the Dharug gula, meaning no water.[4] Although the vowel 'u' was originally written in the English orthography as "oo" (in spellings such as coola or koolah), it was changed to "oa", possibly in error.[5] Because of the koala's supposed resemblance to a bear, it was often miscalled the koala bear, particularly by early settlers.[6] The generic name, Phascolarctos, is derived from the Greek words phaskolos "pouch" and arktos "bear". The specific name, cinereus, is Latin for "ash coloured".[7]</p>
+
+            <p>Traditionally, three distinct subspecies have been recognised: the Queensland koala (P. c. adustus, Thomas 1923), the New South Wales koala (P. c. cinereus, Goldfuss 1817), and the Victorian koala (P. c. victor, Troughton 1935). These forms are distinguished by pelage colour and thickness, body size, and skull shape. The Queensland koala is the smallest of the three, with shorter, silver fur and a shorter skull. The Victorian koala is the largest, with shaggier, brown fur and a wider skull.[20][21] The boundaries of these variations are based on state borders, and their status as subspecies is disputed. A 1999 genetic study suggests that the variations represent differentiated populations with limited gene flow between them, and that the three subspecies comprise a single evolutionarily significant unit.[21] Other studies have found that koala populations have high levels of inbreeding and low genetic variation.[22][23] Such low genetic diversity may have been a characteristic of koala populations since the late Pleistocene.[24] Rivers and roads have been shown to limit gene flow and contribute to the genetic differentiation of southeast Queensland populations.[25] In April 2013, scientists from the Australian Museum and Queensland University of Technology announced they had fully sequenced the koala genome.[26]" ~Wikipedia </p>
+
+          </div>
+          <div class="cell medium-8 medium-cell-block-y">
+            <h4>Scroll down</h4>
+            <p>"The koala is a stocky animal with a large head and vestigial or non-existent tail.[27][28] It has a body length of 60–85 cm (24–33 in) and a weight of 4–15 kg (9–33 lb),[28] making it among the largest arboreal marsupials.[29] Koalas from Victoria are twice as heavy as those from Queensland.[20] The species is  dimorphic, with males 50% larger than females. Males are further distinguished from females by their
+            <p> The pelage of the koala is thicker and longer on the back, and shorter on the belly. The ears have thick fur on both the inside and outside.[29] The back fur colour varies from light grey to chocolate brown.[27] The belly fur is whitish; on the rump it is dappled whitish, and darker at the back.[28] The koala has the most effective insulating back fur of any marsupial and is highly resilient to wind and rain, while the belly fur can reflect solar radiation.[34] The koala's curved, sharp claws are well adapted for climbing trees. The large forepaws have two opposable digits (the first and second, which are opposable to the other three) that allow them to grasp small branches. On the hindpaws, the second and third digits are fused, a typical condition for members of the Diprotodontia, and the attached claws (which are still separate) are used for grooming.[35] As in humans and other primates, koalas have friction ridges on their paws.[36] The animal has a sturdy skeleton and a short, muscular upper body with proportionately long upper limbs that contribute to its climbing and grasping abilities. Additional climbing strength is achieved with thigh muscles that attach to the shinbone lower than other animals.[37] The koala has a cartilaginous pad at the end of the spine that may make it more comfortable when it perches in the fork of a tree.[33]</p>
+            <p> The koala has one of the smallest brains in proportion to body weight of any mammal,[38] being 60% smaller than that of a typical diprotodont, weighing only 19.2 g (0.68 oz).[39] The brain's surface is fairly smooth, typical for a "primitive" animal.[40] It occupies only 61% of the cranial cavity[38] and is pressed against the inside surface by cerebrospinal fluid. The function of this relatively large amount of fluid is not known, although one possibility is that it acts as a shock absorber, cushioning the brain if the animal falls from a tree.[40] The koala's small brain size may be an adaptation to the energy restrictions imposed by its diet, which is insufficient to sustain a larger brain.[38] Because of its small brain, the koala has a limited ability to perform complex, unfamiliar behaviours. For example, when presented with plucked leaves on a flat surface, the animal cannot adapt to the change in its normal feeding routine and will not eat the leaves.[41] The koala's olfactory senses are normal, and it is known to sniff the oils of individual branchlets to assess their edibility.[38] Its nose is fairly large and covered in leathery skin. Its round ears provide it with good hearing,[33] and it has a well-developed middle ear.[14] A koala's vision is not well developed,[33] and its relatively small eyes are unusual among marsupials in that the pupils have vertical slits.[29] Koalas make use of a novel vocal organ to produce low-pitched sounds (see social spacing, below). Unlike typical mammalian vocal cords, which are folds in the larynx, these organs are placed in the velum (soft palate) and are called velar vocal cords.[42]" ~Wikipedia </p>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="cell shrink footer">
+        <h4>In conclusion, koalas are the best animals! Don't you agree?</h4>
+      </div>
+    </div>
+
+    <div id="controls" class="callout warning text-center">
+      <h2>There are plenty of controls too!</h2>
+      <hr>
       <h4>Activate the switch to become a 10x programmer</h4>
       <div class="switch large">
-	<input class="switch-input" disabled id="switch" type="checkbox" name="switch">
-	<label class="switch-paddle" for="switch">
-	  <span class="show-for-sr">Become 10x Programmer</span>
-	</label>
+      	<input class="switch-input" disabled id="switch" type="checkbox" name="switch">
+      	<label class="switch-paddle" for="switch">
+      	  <span class="show-for-sr">Become 10x Programmer</span>
+      	</label>
       </div>
-	<p>Sike that switch is disabled, you can't become a 10x programmer</p>
+      <p>Sike that switch is disabled, you can't become a 10x programmer</p>
       <div class="primary progress">
-	<div class="progress-meter" style="width: 75%">
-	  <p class="progress-meter-text">Big Brain 75% activated</p>
-	</div>
+    	<div class="progress-meter" style="width: 75%;">
+    	  <p class="progress-meter-text">Big Brain 75% activated</p>
+    	</div>
       </div>
       <h4>You want buttons? We got all the buttons!</h4>
       <button type="button" class="success button">Save</button>
@@ -112,25 +196,28 @@ K22 -- Who Does Frame Work For?
       <a class="large button">So Large</a>
       <a class="expanded button">Such Expand Much Wow</a>
     </div>
-    
-    <div id="video" class="text-center">
-      <h4>Heres an embedded, responsive video!</h4>
-      <div class="responsive-embed">
-	<iframe src="https://www.youtube.com/embed/oI3ADcDH0Uc"></iframe>
-      </div>
-      <div class="card" style="width: 300px;">
-	<div class="card-divider">Fun Fact</div>
-	<img src="https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwj_58iirdblAhVxc98KHQ3hBVwQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F493918284123071375%2F&psig=AOvVaw02ot2GTbYy0G0ndrsmcMeh&ust=1573156090048360">
-	<div class="card-section">
-	  <h4>Koalas spend <span class="stat">90%</span> of their day sleeping.!</h4>
-	  <p>Thats a <i>koality</i> sleep</p>
+
+    <div id="video" class="text-center callout alert">
+      <h4>Heres an embedded, responsive video, and a meme card to go along with it!</h4>
+      <div class="grid-x">
+	<div class="cell medium-7 large-9 responsive-embed">
+	  <iframe src="https://www.youtube.com/embed/oI3ADcDH0Uc"></iframe>
+	</div>
+	<div class="cell auto card" style="height: 600px">
+	  <div class="card-divider">
+	    <h4>Fun Fact</h4>
+	  </div>
+	  <img src="https://i.imgur.com/GmhbTxU.jpg">
+	  <div class="card-section">
+	    <h4>Koalas spend <span class="stat">90%</span> of their day sleeping!</h4>
+	    <p>Thats a <i>koality</i> sleep</p>
+	  </div>
 	</div>
       </div>
-      <h5></h5>
     </div>
 
     <div class="callout secondary text-center">
-      <h6>Here, try going to a different page</h6>
+      <h5>Try going to a different page with this handy pagination component</h5>
       <ul class="pagination" role="navigation" aria-label="Pagination">
 	<li class="disabled">Previous <span class="show-for-sr">page</span></li>
 	<li class="current"><span class="show-for-sr">You're on page</span> 1</li>
@@ -138,13 +225,17 @@ K22 -- Who Does Frame Work For?
 	<li><a aria-label="Page 3">3</a></li>
 	<li><a aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
       </ul>
-      <h6>Sike theres only one page</h6>
+      <p>Sike theres only one page</p>
     </div>
 
-    <footer class="callout alert text-center">
-      <p class="text-center">&copy; koalas 2019!</p>
+    <footer class="callout success text-center">
+      <h2>Congratulations!</h2>
+      <h3>You now know the basics of Foundation (plus a lot about koalas), and can start quickly making beautiful responsive websites.</h3>
+      <a href="https://foundation.zurb.com/sites/docs/" class="button expanded">Official Foundation Documentation</a>
+      <p class="text-center">&copy; Team koalas -- Tammy Chen & Kazi Jamal 2019</p>
       <p class="text-center"><a href="#backup">Go to Top</a></p>
     </footer>
+    
   </body>
-  
+
 </html>
