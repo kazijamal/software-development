@@ -1,5 +1,11 @@
+# Team koalas -- Tammy Chen and Kazi Jamal
+# SoftDev1 pd9
+# K24 -- A RESTful Journey Skyward
+# 2019-11-12
+
 from flask import Flask, render_template
-import urllib2, json
+import urllib.request as urllib2
+import json
 app = Flask(__name__)
 
 @app.route("/")
