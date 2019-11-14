@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>Team HanSolo -- K25</title>
+  </head>
+  
+  <body>
+    <h1>IP Location</h1>
+    <h4>The current IP address is {{ ip['query'] }} and has been located in:</h4>
+    <ul>
+      <li>city: {{ ip['city'] }}</li>
+      <li>region: {{ ip['region'] }}</li>
+      <li>zip: {{ ip['zip'] }}</li>
+      <li>latitude: {{ ip['lat'] }}</li>
+      <li>longitude: {{ ip['lon'] }}</li>
+    </ul>
+
+    <h1>New York Times</h1>
+    <h3>Top Article from Homepage</h3>
+    <h4>{{ nyt['title'] }}</h4>
+    <p>Section: {{ nyt['section'] }}</p>
+    <p>Subsection: {{ nyt['subsection'] }}</p>
+    <p>Published Date: {{ nyt['published_date'] }}</p>
+    <a href="{{ nyt['url'] }}">Read the full article</a>
+
+    <h1>SpaceX</h1>
+    <h4>Latest Launch</h4>
+    <ul>
+      <li>flight number: {{ spacex['flight_number'] }}</li>
+      <li>mission name: {{ spacex['mission_name'] }}</li>
+      <li>launch date: {{ spacex['launch_date_local'] }}</li>
+      <li>flight number: {{ spacex['flight_number'] }}</li>
+      <li>rocket name: {{ spacex['rocket']['rocket_name'] }}</li>
+      <li>launch site: {{ spacex['launch_site']['site_name_long'] }}</li>
+    </ul>
+    <img src="{{ spacex['links']['mission_patch_small'] }}" alt="mission patch">
+    
+  </body>
+
+  <footer>
+    <p>&copy; Copyright 2019 Team HanSolo - Kazi Jamal</p>
+  </footer>
+  
+</html>
