@@ -12,7 +12,8 @@ K42 - - On Making the Most of Life. . .
 - Wait long enough and people will surprise and impress you.
 - When you had something for 10 years that you hold so precious, it is the toughest thing in the world to hand it over--find somebody better than you to hand it to.
 - The best gift an educator can give: get somebody to become self-reflective.
-- Alice has similarities to Scratch, but more focused on storytelling —> how I taught at NYYTT
+- Alice has similarities to Scratch, but more focused on storytelling
+  - this reminded me of teaching at New York Youth Tech Team, and teaching kids programming using Scratch, with the motivation of creating video games
 - A fish giving a talk about the importance of water: “I don’t know how not to have fun. I’m dying and having fun, and I'm going to keep having fun every day I have left, because there’s no other way to play it.
 - Never lose the child-like wonder.
 - Feedback loops and listening to them are important.
