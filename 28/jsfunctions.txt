@@ -1,0 +1,17 @@
+document.getElementById(<ID>)
+document.getElementsByTagName(<ID>)
+document.getElementsByClassName(<ID>)
+
+<OBJECT>.addEventListener(<EVENT>, <FUNCTION>)
+
+<button id="b">The button</button>
+
+var dasbut = document.getElementById("b");
+dasbut.addEventListener('click', fxnName);
+
+document.createElement(<HTML TAG NAME>)
+element.setAttribute(<NAME>, <VALUE>)
+element.getAttribute(<NAME>)
+element.remove()
+element.innerHTML
+element.appendChild(<ELEMENT>)
