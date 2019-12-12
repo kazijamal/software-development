@@ -1,3 +1,8 @@
+// Kazi Jamal
+// SoftDev1 pd9
+// K27 -- Sequential Progression
+// 2019-12-11
+
 var foo = function() {
     console.log("foo testing");
 };
