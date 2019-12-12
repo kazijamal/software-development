@@ -7,7 +7,7 @@ document.getElementsByClassName(<ID>)
 <button id="b">The button</button>
 
 var dasbut = document.getElementById("b");
-dasbut.addEventListener('click', fxnName);
+dasbut.addEventListener(event, fxnName);
 
 document.createElement(<HTML TAG NAME>)
 element.setAttribute(<NAME>, <VALUE>)
@@ -15,3 +15,8 @@ element.getAttribute(<NAME>)
 element.remove()
 element.innerHTML
 element.appendChild(<ELEMENT>)
+
+events: 'click', 'mouseover', 'mouseout'
+
+e is for Event, an interface implemented by all events
+button.addEventListener('click', function(e) { console.log(e); });
