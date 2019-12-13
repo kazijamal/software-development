@@ -18,7 +18,7 @@ for (var i=0; i < lis.length; i++) {
     lis[i].addEventListener('mouseover',
 			    function() { changeHeading(this.innerHTML); });
     lis[i].addEventListener('mouseout',
-			    function() { changeHeading("Hello World!"); });
+			    function() { changeHeading("List Demo"); });
     lis[i].addEventListener('click',
 			    function() { removeItem(this); });
 };
@@ -91,3 +91,22 @@ var addFact = function(e) {
 // adds listener to button for adding item to factorial list
 var factb = document.getElementById("factb");
 factb.addEventListener('click', addFact);
+
+// xtra
+var lastFib = function(e) {
+    while (fnum < 40) {
+	addFib();
+    }
+};
+
+var flastb = document.getElementById("flastb");
+flastb.addEventListener('click', lastFib);
+
+var lastFact = function(e) {
+    while (factnum < 172) {
+	addFact();
+    }
+};
+
+var factlastb = document.getElementById("factlastb");
+factlastb.addEventListener('click', lastFact);

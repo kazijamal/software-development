@@ -6,20 +6,17 @@
   <head>
     <meta charset="utf-8"/>
     <style>
+      body {text-align: center;}
       .red   {color : #ff0000;}
       .green {color : #00ff00;}
-      .blue  { color : #0000ff;}
+      .blue  {color : #0000ff;}
     </style>
   </head>
 
   <body>
-    <h1 id="h" class="blue">Hello World!</h1>
+    <h1 id="h">List Demo</h1>
 
-    <div id="div1" class="green">This is a div</div>
-    <div id="div2">This is a second div</div>
-    <div class="blue">This is a toid div</div>
-
-    <h2>The List</h2>
+    <h2 class="red">The List</h2>
     <ol id="thelist">
       <li>item 0</li>
       <li>item 1</li>
@@ -33,13 +30,13 @@
 
     <br>
 
-    <h2>Fibonacci List</h2>
+    <h2 class="green">Fibonacci List</h2>
     <ol id="fiblist">
     </ol>
 
     <br>
 
-    <h2>Factorial List</h2>
+    <h2 class="blue">Factorial List</h2>
     <ol id="factlist">
     </ol>
 
@@ -48,6 +45,10 @@
     <button id="b">The button</button>
     <button id="fb">fib button</button>
     <button id="factb">fact button</button>
+    <br>
+    <button id="flastb">click to find out the last number in the fibonacci sequence</button>
+    <br>
+    <button id="factlastb">click to find out the last factorial</button>
     
     <script src="dommy.js"></script>
 
