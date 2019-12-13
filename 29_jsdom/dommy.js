@@ -12,11 +12,11 @@ var count = lis.length
  
 for (var i=0; i < lis.length; i++) {
     lis[i].addEventListener('mouseover',
-			    function(e) { changeHeading(e['target'].innerHTML); });
+			    function() { changeHeading(this.innerHTML); });
     lis[i].addEventListener('mouseout',
 			    function(e) { changeHeading("Hello World!"); });
     lis[i].addEventListener('click',
-			    function(e) { removeItem(e['target']); });
+			    function() { removeItem(this); });
 };
 
 var addItem = function(e) {
@@ -25,11 +25,11 @@ var addItem = function(e) {
     var item = document.createElement("li");
     item.innerHTML = "item " + count++;
     item.addEventListener('mouseover',
-			    function(e) { changeHeading(e['target'].innerHTML); });
+			    function(e) { changeHeading(this.innerHTML); });
     item.addEventListener('mouseout',
 			    function(e) { changeHeading("Hello World!"); });
     item.addEventListener('click',
-			    function(e) { removeItem(e['target']); });
+			    function() { removeItem(this); });
     list.appendChild(item);
 };
 
@@ -55,9 +55,27 @@ var addFib = function(e) {
     list.appendChild(item);
 }
 
-var addFib2 = function(e) {
-    console.log(e);
-}
-
 var fb = document.getElementById("fb");
 fb.addEventListener('click', addFib);
+
+var factnum = 1;
+
+var fact = function(n) {
+    if (n <= 1) {
+	return 1;
+    }
+    else {
+	return n * fact(n-1);
+    }
+};
+
+var addFact = function(e) {
+    console.log(e);
+    var list = document.getElementById("factlist");
+    var item = document.createElement("li");
+    item.innerHTML = fact(factnum++);
+    list.appendChild(item);
+}
+
+var factb = document.getElementById("factb");
+factb.addEventListener('click', addFact);
