@@ -1,3 +1,8 @@
+// Kazi Jamal and Ahmed Sultan
+// SoftDev1 pd9
+// K29 -- Sequential Progression III: Season of the Witch
+// 2019-12-16
+
 // changes heading on top of webpage to e
 var changeHeading = function(e) {
     var h = document.getElementById("h");
