@@ -51,7 +51,8 @@ var line = function(x0, y0, x1, y1) {
 
 var radius = 0;
 var change = 1;
-var animid = -1;
+var animid;
+var isRunning = false;
 
 // clears the canvas
 var clearCanvas = function() {
@@ -60,6 +61,14 @@ var clearCanvas = function() {
     ldy = -1;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 };
+
+var start = function() {
+    console.log('start')
+    if (!isRunning) {
+        animate();
+        isRunning = true;
+    };
+}
 
 var animate = function() {
     clearCanvas();
@@ -81,16 +90,18 @@ var animate = function() {
 	change = 1;
     };
     radius += change;
-    animdid = window.requestAnimationFrame(animate);
+    animid = window.requestAnimationFrame(animate);
 };
 
 var stop = function() {
+    console.log('stop');
     window.cancelAnimationFrame(animid);
+    isRunning = false;
 }
 
 // sets event listeners for animaniac
 var animaniacBtn = document.getElementById('animaniac');
-animaniacBtn.addEventListener('click', animate);
+animaniacBtn.addEventListener('click', start);
 
 // sets event listeners for clear
 var stopBtn = document.getElementById('stop');
