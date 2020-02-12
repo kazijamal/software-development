@@ -50,7 +50,7 @@ var line = function(x0, y0, x1, y1) {
 };
 
 var radius = 0;
-var change = 20;
+var change = 1;
 var animid = -1;
 
 // clears the canvas
@@ -75,17 +75,14 @@ var animate = function() {
     ctx.strokeStyle = '#000000';
     // Renders all the lines in the path, does not end the path.
     ctx.stroke()
-    if (radius == 300) {
-	change = -20;
+    if (radius == 150) {
+	change = -1;
     } else if (radius == 0) {
-	change = 20;
+	change = 1;
     };
     radius += change;
-};
-
-var animaniac = function() {
     animdid = window.requestAnimationFrame(animate);
-}
+};
 
 var stop = function() {
     window.cancelAnimationFrame(animid);
@@ -93,7 +90,7 @@ var stop = function() {
 
 // sets event listeners for animaniac
 var animaniacBtn = document.getElementById('animaniac');
-animaniacBtn.addEventListener('click', animaniac);
+animaniacBtn.addEventListener('click', animate);
 
 // sets event listeners for clear
 var stopBtn = document.getElementById('stop');
