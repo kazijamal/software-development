@@ -19,8 +19,6 @@ var isRunning = false;
 // clears the canvas
 var clearCanvas = function() {
     console.log('clearing canvas');
-    ldx = -1;
-    ldy = -1;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 };
 
@@ -38,7 +36,7 @@ var animate = function() {
     ctx.beginPath();
     ctx.fillStyle = '#ff0000';
     // Draws an arc.
-    ctx.arc(300, 300, radius, 0, 2 * Math.PI);
+    ctx.arc(canvas.width/2, canvas.height/2, radius, 0, 2 * Math.PI);
     ctx.fill();
     // Fills the interior of the path,
     // Will not work if the path has fewer than 3 points in it.
@@ -46,7 +44,7 @@ var animate = function() {
     ctx.strokeStyle = '#000000';
     // Renders all the lines in the path, does not end the path.
     ctx.stroke()
-    if (radius == 150) {
+    if (radius == 200) {
 	change = -1;
     } else if (radius == 0) {
 	change = 1;
