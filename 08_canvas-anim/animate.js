@@ -54,16 +54,22 @@ var drawDot = function() {
     dotrequestID = window.requestAnimationFrame(drawDot);
 };
 
-var xpos = c.width / 2;
-var ypos = c.height / 2;
+var xpos = Math.random() * c.width;
+var ypos = Math.random() * c.height;
 var xchange = 2;
-var ychange = 3;
+var ychange = 2;
 // set up image
 const dvdimg = new Image();
 dvdimg.src = 'logo_dvd.jpg';
 // resize image in same 3:2 aspect ratio
 imgwidth = 150;
 imgheight = 100;
+
+var startdvd = function() {
+    xpos = Math.random() * (c.width - 50);
+    ypos = Math.random() * (c.height - 50);
+    dvdLogo();
+}
 
 var dvdLogo = function() {
     window.cancelAnimationFrame(dvdrequestID);
@@ -73,11 +79,11 @@ var dvdLogo = function() {
     ctx.drawImage(dvdimg, xpos, ypos, imgwidth, imgheight);
 
     // check if logo should bounce off left or right of canvas
-    if (xpos + xchange >= c.width - imgwidth/2 || xpos + xchange <= imgwidth/-2) {
+    if (xpos + xchange >= c.width - imgwidth + 10 || xpos + xchange <= -1 * imgwidth/9) {
         xchange *= -1;
     }
     // check if logo should bounce off top or bottom of canvas
-    if (ypos + ychange >= c.height - imgheight/2 || ypos + ychange <= imgheight/-2) {
+    if (ypos + ychange >= c.height - imgheight + 10 || ypos + ychange <= -1 * imgheight/7) {
         ychange *= -1;
     }
 
@@ -97,4 +103,4 @@ var stopIt = function() {
 
 dotButton.addEventListener('click', drawDot);
 stopButton.addEventListener('click', stopIt);
-dvdlogoButton.addEventListener('click', dvdLogo);
+dvdlogoButton.addEventListener('click', startdvd);
