@@ -52,7 +52,7 @@ var animate = function () {
           change = 1;
      };
      radius += change;
-     animid = window.requestAnimationFrame(animate);
+     animid = window.requestAnimationFrame(animate);    
 };
 
 // stopping the animation
