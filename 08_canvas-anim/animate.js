@@ -81,10 +81,18 @@ var dvdLogo = function() {
     // check if logo should bounce off left or right of canvas
     if (xpos + xchange >= c.width - imgwidth + 10 || xpos + xchange <= -1 * imgwidth/9) {
         xchange *= -1;
+        imgdata = dvdimg.dataset
+        for (var i = 0; i < imgdata.length; i++) {
+            imgdata[i] = 255;
+        }
     }
     // check if logo should bounce off top or bottom of canvas
     if (ypos + ychange >= c.height - imgheight + 10 || ypos + ychange <= -1 * imgheight/7) {
         ychange *= -1;
+        imgdata = dvdimg.dataset
+        for (var i = 0; i < imgdata.length; i++) {
+            imgdata[i] = 255;
+        }
     }
 
     xpos += xchange;
