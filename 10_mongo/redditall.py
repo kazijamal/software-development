@@ -29,3 +29,5 @@ if (posts.count_documents({}) == 0):
     for child in children:
         pprint.pprint(child)
     posts.insert_many(children)
+
+client.close()
