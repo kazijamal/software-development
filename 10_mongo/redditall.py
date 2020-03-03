@@ -55,6 +55,11 @@ def findGreaterScoreComments(score, comments):
     print('----- found posts with greater than ' + str(score) + ' score and ' + str(comments) + ' comments\n')
     for post in posts.find({'data.score': {'$gt': score}, 'data.num_comments': {'$gt': comments}}):
         print(post['data']['title'] + ': ' + str(post['data']['score']) + ' score and ' + str(post['data']['num_comments']) + ' comments\n')
+
+def searchTitle(title):
+    print('----- found posts with ' + title + ' in title\n')
+    for post in posts.find({}):
+        print(post['data']['title'] + '\n')
         
 findSubreddit('Coronavirus')
 findGreaterScore(40000)
