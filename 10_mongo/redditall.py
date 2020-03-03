@@ -58,7 +58,7 @@ def findGreaterScoreComments(score, comments):
 
 def searchTitle(title):
     print('----- found posts with ' + title + ' in title\n')
-    for post in posts.find({}):
+    for post in posts.find({'data.title':{'$regex':title, '$options': 'i'}}):
         print(post['data']['title'] + '\n')
         
 findSubreddit('Coronavirus')
@@ -66,5 +66,6 @@ findGreaterScore(40000)
 findLessCrossPosts(1)
 findGreaterEqualComments(1046)
 findGreaterScoreComments(40000, 1046)
+searchTitle('the')
             
 client.close()
