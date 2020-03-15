@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>K11 -- Ay Mon Go Git It From Yer Flask</title>
+  </head>
+  
+  <body>
+    <h1>Retrieved Posts</h1>
+    <a href="/">Back Home</a>
+    {% for post in posts %}
+    <h3>{{ post.data.title }}</h3>
+    <h4>{{ post.data.subreddit_name_prefixed }}</h4>
+    <p>Score: {{ post.data.score }}</p>
+    <p>{{ post.data.num_comments }} comments</p>
+    <p>{{ post.data.num_crossposts }} crossposts</p>
+    <hr />
+    {% endfor %}
+  </body>
+  
+</html>
