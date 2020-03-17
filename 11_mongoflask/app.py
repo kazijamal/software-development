@@ -38,29 +38,29 @@ def searchSubreddit():
 # search for posts with score greater than some score
 @app.route("/searchgreaterscore")
 def searchGreaterScore():
-    score = request.args['score']
+    score = int(request.args['score'])
     res = posts.find({'data.score': {'$gt': score}})
     return render_template('posts.html', posts=res)
 
 # search for posts with number of crossposts less than some number of scrossposts
 @app.route("/searchlesscrossposts")
 def searchLessCrossPosts():
-    crossposts = request.args['crossposts']
+    crossposts = int(request.args['crossposts'])
     res = posts.find({'data.num_crossposts': {'$lt': crossposts}})
     return render_template('posts.html', posts=res)
 
 # search for posts with number of comments greater than or equal to some number of comments
 @app.route("/searchgreaterequalcomments")
 def searchGreaterEqualComments():
-    comments = request.args['comments']
+    comments = int(request.args['comments'])
     res = posts.find({'data.num_comments': {'$gte': comments}})
     return render_template('posts.html', posts=res)
 
 # search for posts with score and number of comments greater than some score and number of comments
 @app.route("/searchgreaterscorecomments")
 def searchGreaterScoreComments():
-    score = request.args['score']
-    comments = request.args['comments']
+    score = int(request.args['score'])
+    comments = int(request.args['comments'])
     res = posts.find({'data.score': {'$gt': score}, 'data.num_comments': {'$gt': comments}})
     return render_template('posts.html', posts=res)
 
