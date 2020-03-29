@@ -1,82 +1,49 @@
-/*
-Kevin Cai and Kazi Jamal -- Team Koding Kings
-SoftDev1 pd9
-K06 -- Dot Dot Dot
-2020-02-11
-*/
+const pic = document.getElementById("vimage");
+const clearBtn = document.getElementById("clearBtn");
+const xmlns = "http://www.w3.org/2000/svg";
+var firstClick = true;
+var lastClickCoords = {
+    x: null,
+    y: null
+};
 
-// retrieve node in DOM via ID
-const canvas = document.getElementById('playground');
-
-// instantiate a CanvasRenderingContext2D object
-const ctx = canvas.getContext('2d');
-
-ldx = -1;
-ldy = -1;
-
-// draws box or dot when canvas clicked
-var draw = function(e) {
-    // the offset in the X coordinate of the mouse pointer between that event and the padding edge of the target node
-    mouseX = e.offsetX;
-    // the offset in the Y coordinate of the mouse pointer between that event and the padding edge of the target node
-    mouseY = e.offsetY;
-    m = Math.sqrt(
-        (mouseY - ldy) * (mouseY - ldy) + (mouseX - ldx) * (mouseX - ldx)
-    );
-    dx = ((mouseX - ldx) / m) * 5;
-    dy = ((mouseY - ldy) / m) * 5;
-    if (ldx != -1) {
-        line(ldx + dx, ldy + dy, mouseX, mouseY);
+var draw = function(event) {
+    const mouseX = event.offsetX;
+    const mouseY = event.offsetY;
+    const mouseCoordsString = `${mouseX},${mouseY}`;
+    console.log(`Drawing a circle at (${mouseCoordsString})`);
+    const dot = document.createElementNS(xmlns, "circle");
+    dot.setAttribute("cx", mouseX);
+    dot.setAttribute("cy", mouseY);
+    dot.setAttribute("r", 10);
+    dot.setAttribute("fill", "lightgreen");
+    pic.appendChild(dot);
+    if (!firstClick) {
+	const line = document.createElementNS(xmlns, "line");
+	line.setAttribute("x1", lastClickCoords.x)
+	line.setAttribute("y1", lastClickCoords.y)
+	line.setAttribute("x2", mouseX)
+	line.setAttribute("y2", mouseY)
+	line.setAttribute("stroke", "black")
+	pic.appendChild(line);
     }
-    drawDot(mouseX, mouseY);
-    ldx = mouseX;
-    ldy = mouseY;
+    lastClickCoords.x = mouseX
+    lastClickCoords.y = mouseY
+    if (firstClick) {
+	firstClick = false;
+    };
 };
 
-var line = function(x0, y0, x1, y1) {
-    // Starts or resets current path
-    ctx.beginPath();
-    // Moves path to position (x, y)
-    // Does not result in a line or a filled in section
-    ctx.moveTo(x0, y0);
-    // Moves path to position (x, y)
-    // will result in a line and a filled in section
-    ctx.lineTo(x1, y1);
-    // Renders all the lines in the path, does not end the path.
-    ctx.stroke();
-    // Results in a line from current position to start pos
-    // Path can be continued after
-    ctx.closePath();
-};
-// draws a dot with center at mouse location
-var drawDot = function(x, y) {
-    console.log('drawing dot');
-    var radius = 5;
-    // Starts or resets current path
-    ctx.beginPath();
-    ctx.fillStyle = '#ff0000';
-    // Draws an arc.
-    ctx.arc(x, y, radius, 0, 2 * Math.PI);
-    ctx.fill();
-    // Fills the interior of the path,
-    // Will not work if the path has fewer than 3 points in it.
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = '#000000';
-    // Renders all the lines in the path, does not end the path.
-    ctx.stroke();
-};
+var clear = function(event) {
+    event.preventDefault();
+    console.log("Clearing svg");
+    const blank = document.createElementNS(xmlns, "rect")
+    blank.setAttribute("height", 500);
+    blank.setAttribute("width", 500);
+    blank.setAttribute("fill", "white");
+    pic.appendChild(blank);
+    firstClick = true;
+}
 
-// clears the canvas
-var clearCanvas = function() {
-    console.log('clearing canvas');
-    ldx = -1;
-    ldy = -1;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-};
-
-// sets event listener for canvas click
-canvas.addEventListener('click', draw);
-
-// sets event listeners for clear
-var clearBtn = document.getElementById('clear');
-clearBtn.addEventListener('click', clearCanvas);
+pic.addEventListener("mousedown", draw);
+clearBtn.addEventListener("click", clear);
