@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html>
+     <head>
+          <title>TEDxSoftDev — Node.js</title>
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+     </head>
+     <body style="margin-left: 2em; margin-right: 2em; ">
+          <br>
+          <h5 class="text-secondary m-0">TEDxSoftDev</h5>
+          <h1 class="display-1 font-weight-bolder m-0">Node.js</h1> <br> 
+          <h5 class="text-secondary m-0">by Kazi Jamal and Ahmed Sultan, pd 9</h5>
+
+          <hr>
+
+          <h3>What is Node.js?</h3>
+          <div class="information" style="margin-left: 2em;">
+               <p>Node.js is a <b>JavaScript runtime platform</b>, based off Google Chrome's V8 JavaScript engine</p>
+               <p>It is...</p>
+               <ul>
+                    <li>OPEN SOURCE</li>
+                    <li>SCALABLE</li>
+                    <li>SUPPORTED ACROSS PLATFORMS</li>
+               </ul>
+          </div>
+
+          <hr>
+          
+          <h3>What are Node.js' uses?</h3>
+          <div class="information" style="margin-left: 2em;">
+               <p>There are two main ways people today use Node.js:</p>
+               <ol>
+                    <li><b>Creating utilities</b> to be used locally, or on servers</li>
+                    <li><b>Creating web servers and applications</b></li>
+                         <ul>
+                              <li>Node.js attempts to optimize processing speeds and scalability; strong choice for the development of web applications</li>
+                              <li>Cornerstone of some modern-day 'web development stacks' (MEAN, MERN, etc.)</li>
+                              <li>Lots of big-name corporations have shifted toward Node.js (Microsoft, Netflix, LinkedIn, PayPal, Uber, etc.)</li>
+                         </ul>
+               </ol>
+          </div>
+
+          <hr>
+
+          <h3>How do we use Node.js?</h3>
+          <div class="information" style="margin-left: 2em;">
+               <p>Unlike the JavaScript many of us have experienced in SoftDev&mdash;whose runtime is confined entirely within the browser&mdash;<b>Node.js gives your JavaScript code an environment to run on your computer.</b></p>
+               <ul>
+                    <li>Put simply: with Node.js, you can run your JavaScript code in a terminal/locally</li>
+               </ul>
+          </div>
+
+          <hr>
+
+          <h3>Okay... what's npm?</h3>
+          <div class="information" style="margin-left: 2em;">
+               <p>npm is a <b>package manager for JavaScript</b>&mdash;and it is the <b>default package manager for Node.js</b></p>
+               <p>You can install packages from npm to use in your project</p>
+               <ul>
+                    <li>by using the command <code class="text-success">npm init</code>, we can <i>initialize</i> a <b>package</b> which includes a package.json&mdash;which, in turn, stores <b>dependencies</b> (modules you have already installed) and other metadata about your project/package</li>
+               </ul>
+               <p>Popular npm packages</p>
+               <ul>
+                    <li><b>express: </b>"fast, unopinionated, minimalist web framework for Node.js"</li>
+                    <li><b>lodash: </b>utility library, adding methods to iterate through arrays, strings, etc.</li>
+                    <li><b>react: </b>a library for building user interfaces</li>
+               </ul>
+          </div>
+
+          <hr>
+
+          <h3>Why use Node.js?</h3>
+          <div class="information" style="margin-left: 2em;">
+               <p>Advantages of Node.js</p>
+               <ul>
+                    <li>Allows programmers to <b>write both the front-end and back-end of web applications in a single language</b></li>
+                    <li><b>Very large community</b>&mdash;lots of learning resources and npm modules to utilize</li>
+                    <li><b>High performance</b>, with Google's V8 JavaScript engine</li>
+                    <li>Can process <b>many requests concurrently</b>, <i>better than Ruby or Python</i></li>
+                    <li><b>Lightweight and scalable</b></li>
+               </ul>
+               <p>Disadvantages of Node.js</p>
+               <ul>
+                    <li><b>Lacking in performance</b> for heavy computational and CPU bound tasks</li>
+                    <li><b>Lacking in maturity</b>&mdash;the Node.js API is frequently updated and modified</li>
+                    <li>Some npm modules <b>lack thorough documentation</b></li>
+               </ul>
+               <p>Node.js vs. Flask/Python</p>
+               <ul>
+                    <li>Python primarily uses <b>pip for library management</b>... while <b>Node.js uses npm</b></li>
+                    <li>Python comes with a <b>built-in environment manager</b>... while <b>Node.js requires you to install one</b> <i>(for example: <code class="text-success">nodeenv</code>)</i> separately.</li>
+                    <li>Flask often has more <b>mature and stable libraries</b> with solid documentation... while Node.js <b>modules sometimes lack thorough documentation.</b></li>
+               </ul>
+          </div>
+
+	  <hr>
+	  <h3>Demo: a basic web server with Node.js</h3>
+	  <div class="information" style="margin-left: 2em;">
+	    <p>Creating a basic web server is a great way to introduce yourself to some core Node.js concepts such as modules, request objects and response objects.</p>
+	    <pre>
+	      <code style="background-color: #eee;
+			   border: 1px solid #999;
+			   display: block;
+			   padding: 20px;">
+var http = require('http');
+
+var requestHandler = function(request, response) {
+    console.log(`received a request for ${request.url}`);
+    response.write("hello world");
+    response.end();
+};
+
+var webServer = http.createServer(requestHandler);
+
+webServer.listen(3000, console.log('listening on port 3000'));
+	      </code>
+	    </pre>
+	    <p>This example works as follows:</p>
+	    <ol>
+	      <li>The core Node.js <b>http module</b> is <b>imported</b>.</li>
+	      <li>A request handler function is created. <i>This function takes a request, logs the request's URL to the console, and then writes "hello world" into the response.</i></li>
+	      <li>Using the <b>http module's createServer function, a server is created</b> with the previously declared request handler function.</li>
+	      <li>The <b>web server is directed to listen</b> for requests on port 3000.</li>
+	    </ol>
+	    <p>Opening up a shell in the directory where we put this code in a file called webserver.js, we can test our web server.</p>
+	    <pre>
+	      <code style="background-color: black;
+			   color: white;
+			   border: 1px solid #999;
+			   display: block;
+			   padding: 20px;">
+devos@softdev:~/nodejs $ ls
+webserver.js
+devos@softdev:~/nodejs $ node webserver.js
+listening on port 3000
+	      </code>
+	    </pre>
+	    <p>Typing in the command <b>node with our file webserver.js starts the server</b>, which prints: listening on port 3000. Now we can try sending a request to the web server by visiting the address localhost:3000 in a web browser.</p>
+	    <p>Upon sending a request through a web browser, the web browser displays "hello world". Looking back in our shell, we see the following.</p>
+	    <pre>
+	      <code style="background-color: black;
+			   color: white;
+			   border: 1px solid #999;
+			   display: block;
+			   padding: 20px;">
+devos@softdev:~/nodejs $ node webserver.js
+listening on port 3000
+received a request for /
+	      </code>
+	    </pre>
+	    <p>The web server can be stopped by quitting the process using <kbd>ctrl + c</kbd>.</p>
+	  </div>
+ 
+	  <hr>
+	  <h3>Creating your own modules and importing them for use with Node.js</h3>
+	  <div class="information" style="margin-left: 2em">
+	    <p><b>Modules are a set of functions or variables</b> that are used to <b>organize codebases</b> by <b>separating its different parts.</b></p>
+	    <p><b>Node.js comes with some built in modules</b>, <i>like http which we imported in the last example</i>, but you can also <b>create your own.</b></p>
+	    <pre>
+	      <code style="background-color: #eee;
+			   border: 1px solid #999;
+			   display: block;
+			   padding: 20px;">
+var x = 8;
+
+var foo = function() {
+    console.log('foo is a function!');
+};
+
+module.exports.x = x;
+module.exports.foo = foo;
+	      </code>
+	    </pre>
+	    <p>After declaring the variable x and the function foo in this file, they are <b><i>exported</i> using module.exports</b>, in order to be <b>used in other files.</b></p>
+	    <p>Below is an example of a file that imports the module we just created in order to use its functions and variables.</p>
+	    <pre>
+	      <code style="background-color: #eee;
+			   border: 1px solid #999;
+			   display: block;
+			   padding: 20px;">
+var demomodule = require('./demomodule')
+
+var x = demomodule.x;
+var foo = demomodule.foo;
+
+console.log(x);
+foo();
+	      </code>
+	    </pre>
+	    <p>In this file, we import the previously created module named demomodule using the require function. This new demomodule variable is a regular JavaScript object, and its functions and variables can now be utilized within this file.</p>
+	    <p>Opening up a shell in the directory where we put these two files, we can execute our code.</p>
+	    <pre>
+	      <code style="background-color: black;
+			   color: white;
+			   border: 1px solid #999;
+			   display: block;
+			   padding: 20px;">
+devos@softdev:~/nodejs $ ls
+demomodule.js import.js
+devos@softdev:~/nodejs $ node import.js
+8
+foo is a function
+devos@softdev:~/nodejs $
+	      </code>
+	    </pre>
+	  </div>
+
+          <hr>
+          <h3>More information on Node.js</h3>
+          <div class="information" style="margin-left: 2em;">
+               <p>Here are some great resources we found helpful:</p>
+               <ul>
+                    <li>Node.js official documentation: <a href="https://nodejs.org/en/docs/" class="text-success">https://nodejs.org/en/docs/</a></li>
+                    <li>npm official website: <a href="https://www.npmjs.com/" class="text-success">https://www.npmjs.com/</a></li>
+                    <li>'What is Node.js Exactly? - a beginners introduction to Node.js', by LearnCode.academy: <a href="https://www.youtube.com/watch?v=pU9Q6oiQNd0" class="text-success">https://www.youtube.com/watch?v=pU9Q6oiQNd0</a></li>
+		    <li>Node JS Tutorial for Beginners by Net Ninja YouTube Playlist: <a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp" class="text-success">https://www.youtube.com/playlist?list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp</a></li>
+               </ul>
+          </div>
+          <br>
+     </body>
+</html>
