@@ -2,6 +2,7 @@ var pic = document.getElementById("vimage");
 var clearBtn = document.getElementById("clear");
 var moveBtn = document.getElementById("move");
 var stopBtn = document.getElementById("stop");
+var xtraBtn = document.getElementById("xtra");
 
 var createCircle = function(x, y) {
     var c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
@@ -11,6 +12,7 @@ var createCircle = function(x, y) {
     c.setAttribute( "fill", "red");
     c.setAttribute( "x-direction", 3);
     c.setAttribute( "y-direction", 2);
+    c.setAttribute( "r-change", 1);
     pic.appendChild(c);
     c.addEventListener("click", changeColor);
 }
@@ -61,11 +63,38 @@ var startMove = function(e) {
     moveRequestId = window.requestAnimationFrame(startMove);
 }
 
+var sizeRequestId;
+
+var startSize = function(e) {
+    window.cancelAnimationFrame(sizeRequestId);
+
+    circles = pic.children;
+    
+    for (var i = 0; i < circles.length; i++) {
+	var c = circles[i];
+	var r = parseInt(c.getAttribute("r"));
+
+	if (r == 100) {
+	    c.setAttribute("r-change", -1);
+	}
+
+	if (r == 0) {
+	    c.setAttribute("r-change", 1);
+	}
+	
+	c.setAttribute("r", r + parseInt(c.getAttribute("r-change")));
+    }
+
+    sizeRequestId = window.requestAnimationFrame(startSize);
+}
+
 var stopMove = function(e) {
     window.cancelAnimationFrame(moveRequestId);
+    window.cancelAnimationFrame(sizeRequestId);
 }
 
 pic.addEventListener("click", addCircle);
 clearBtn.addEventListener("click", e => {pic.innerHTML = "";});
 moveBtn.addEventListener("click", startMove);
 stopBtn.addEventListener("click", stopMove);
+xtraBtn.addEventListener("click", startSize);
