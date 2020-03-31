@@ -1,7 +1,6 @@
 var pic = document.getElementById("vimage");
 var btn = document.getElementById("clear");
 
-
 var addCircle = function(e) {
     if (e.target.id == "vimage") {
 	var c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
@@ -9,10 +8,8 @@ var addCircle = function(e) {
 	c.setAttribute( "cy", e.offsetY);
 	c.setAttribute( "r", "25");
 	c.setAttribute( "fill", "red");
-	//c.setAttribute( "stroke", "black" );
 	pic.appendChild(c);
 	c.addEventListener("click", changeColor);
-	//c.addEventListener("click", e => {c.remove();});
     }
 }
 
@@ -30,11 +27,9 @@ var randomCircle = function(e) {
     c.setAttribute("cy", Math.random() * 450 + 25)
     c.setAttribute( "r", "25");
     c.setAttribute( "fill", "red");
-    //c.setAttribute( "stroke", "black" );
     pic.appendChild(c);
     c.addEventListener("click", changeColor);
 }
 
-//pic.appendChild( c );
 pic.addEventListener("click", addCircle)
 btn.addEventListener("click", e => {pic.innerHTML = "";})
