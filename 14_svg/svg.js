@@ -1,35 +1,71 @@
 var pic = document.getElementById("vimage");
-var btn = document.getElementById("clear");
+var clearBtn = document.getElementById("clear");
+var moveBtn = document.getElementById("move");
+var stopBtn = document.getElementById("stop");
+
+var createCircle = function(x, y) {
+    var c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    c.setAttribute( "cx", x);
+    c.setAttribute( "cy", y);
+    c.setAttribute( "r", "25");
+    c.setAttribute( "fill", "red");
+    c.setAttribute( "x-direction", 3);
+    c.setAttribute( "y-direction", 2);
+    pic.appendChild(c);
+    c.addEventListener("click", changeColor);
+}
 
 var addCircle = function(e) {
     if (e.target.id == "vimage") {
-	var c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-	c.setAttribute( "cx", e.offsetX);
-	c.setAttribute( "cy", e.offsetY);
-	c.setAttribute( "r", "25");
-	c.setAttribute( "fill", "red");
-	pic.appendChild(c);
-	c.addEventListener("click", changeColor);
+	createCircle(e.offsetX, e.offsetY);
     }
 }
 
 var changeColor = function(e) {
     const circle = e.target;
-    circle.setAttributeNS(null, "fill", "green");
+    circle.setAttribute("fill", "green");
     circle.addEventListener("click", randomCircle);
 }
 
 var randomCircle = function(e) {
     const circle = e.target;
     circle.remove()
-    var c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    c.setAttribute("cx", Math.random() * 450 + 25)
-    c.setAttribute("cy", Math.random() * 450 + 25)
-    c.setAttribute( "r", "25");
-    c.setAttribute( "fill", "red");
-    pic.appendChild(c);
-    c.addEventListener("click", changeColor);
+    createCircle(Math.random() * 450 + 25, Math.random() * 450 + 25);
 }
 
-pic.addEventListener("click", addCircle)
-btn.addEventListener("click", e => {pic.innerHTML = "";})
+var moveRequestId;
+
+var startMove = function(e) {
+    window.cancelAnimationFrame(moveRequestId);
+
+    circles = pic.children;
+    
+    for (var i = 0; i < circles.length; i++) {
+	var c = circles[i];
+
+	var cx = parseInt(c.getAttribute("cx"))
+	var cy = parseInt(c.getAttribute("cy"))
+
+	if (cx > 475 || cx < 25) {
+	    c.setAttribute("x-direction", parseInt(c.getAttribute("x-direction")) * -1)
+	}
+	
+	if (cy > 475 || cy < 25) {
+	    c.setAttribute("y-direction", parseInt(c.getAttribute("y-direction")) * -1)
+	}
+	
+	c.setAttribute("cx", parseInt(c.getAttribute("cx")) + parseInt(c.getAttribute("x-direction")));
+	c.setAttribute("cy", parseInt(c.getAttribute("cy")) + parseInt(c.getAttribute("y-direction")));
+    }
+
+    moveRequestId = window.requestAnimationFrame(startMove);
+}
+
+var stopMove = function(e) {
+    window.cancelAnimationFrame(moveRequestId);
+}
+
+pic.addEventListener("click", addCircle);
+clearBtn.addEventListener("click", e => {pic.innerHTML = "";});
+moveBtn.addEventListener("click", startMove);
+stopBtn.addEventListener("click", stopMove);
