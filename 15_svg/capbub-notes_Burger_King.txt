@@ -1,0 +1,28 @@
+Benjamin Avrahami and Kazi Jamal -- Team Burger Kings
+SoftDev pd9
+K15 -- Capture Bubble Toil Trouble
+2020-04-02
+
+v1
+Prediction: When any of the table cells are clicked, an alert will be displayed with their innerHTML.
+Observation: Prediction was correct.
+
+v2
+Prediction: When user clicks on a cell, the pop-ups will appear in the order of the table pop-up, then the row pop-up, and finally the cell pop-up.
+Observation: Prediction was incorrect. The order was the cell pop-up, then the row pop-up, and finally the table pop-up.
+
+v3
+Prediction: When user clicks on a cell, the pop-ups will appear in the same order as v2.
+Observation: Prediction was incorrect. The order was the table pop-up, and finally the cell pop-up, then the row pop-up. This seems to be because of the true parameter in table.addEventListener().
+
+Prediction: When e.stopPropagation() is uncommented, only the table pop-up will be displayed.
+Observation: Prediction was correct.
+Observation: After removing the true parameter in table.addEventListener() and with e.stopPropagation() uncommented, the cell pop-up is the only one displayed.
+
+v4
+Prediction: When user clicks on a cell, the pop-ups will appear in the order of the table pop-up, then the row pop-up, and finally the cell pop-up.
+Observation: Prediction was correct.
+
+Prediction: When e.stopPropagation() is uncommented, only the table pop-up will be displayed.
+Observation: Prediction was correct.
+Observation: The order in which the event listeners are attached does not matter.
