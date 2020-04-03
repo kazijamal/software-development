@@ -6,10 +6,10 @@
     ...but will yield only blank page at first.
   -->
 <!--
-Clyde "Thluffy" Sinclair
-SoftDev2 pd0
-2099-12-31    
--->
+    Kazi Jamal
+    SoftDev2 pd9
+    2020-04-03
+  -->
 
 <style>
   .chart div {
@@ -38,16 +38,24 @@ SoftDev2 pd0
     //Select your chart.
     var chart = d3.select(".chart");
 
+    chart is an object with a _groups array and a _parents array
+
     //Prepare for data join.
     var bar = chart.selectAll("div");
 
     (this defines selection to which you will join data)
 
+    bar is an object with a _groups array and a _parents array
+
     //Join your data.
     var barUpdate = bar.data(data);
 
+    barUpdate is an object with _groups, _parents, _enter, and _exit arrays
+
     //Instantiate new elements by appending to the “enter selection.”
     var barEnter = barUpdate.enter().append("div");
+
+    barEnter is an object with a _groups array and a _parents array
 
     //Set width of each bar proportional to its data value.
     barEnter.style("width", function(d) {
