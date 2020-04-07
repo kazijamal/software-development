@@ -1,0 +1,10 @@
+Why does the Let's Make a Bar Chart tutorial use:
+
+// Join the selection and the data, appending the entering bars.
+const barNew = barUpdate.join("div");
+
+but 01/index.html uses:
+
+//Instantiate new elements by appending to the “enter selection.”
+var barEnter = barUpdate.enter().append("div");
+
