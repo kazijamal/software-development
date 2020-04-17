@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
-  
-  <head>
-    <title>Flask Starter Kit</title>
-  </head>
-  
-  <body>
-    <h1>Flask Starter Kit</h1>
-    <p>This is a starter kit for a basic flask app</p>
-  </body>
-  
+
+<head>
+    <title>K18: Come Up For Air</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+
+<body>
+    <h1>K18: Come Up For Air</h1>
+    <button id="render-btn">Render</button>
+    <div id="chart"></div>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js')}}"></script>
+</body>
+
 </html>
