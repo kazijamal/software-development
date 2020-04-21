@@ -1,6 +1,5 @@
 // Credit: http://bl.ocks.org/michellechandra/0b2ce4923dc9b5809922 for showing how to display an interactable US map
 
-let rendered = false;
 let playing = false;
 
 // Setup map
@@ -38,24 +37,20 @@ const setMap = (json) => {
         .append("path")
         .attr("d", path)
         .attr("data-state", (d) => d.properties.name) // Associate path's custom data attribute with corresponding state
-        .attr("data-cases", 0) // Initialize all states with 0 cases
         .style("stroke", "salmon")
         .style("stroke-width", "1")
-        .style("fill", "#fff");
-
-    svg.selectAll("text")
-        .data(json.features)
-        .enter()
-        .append("text")
-        .text("0")
-        .attr("x", function (d) {
-            return path.centroid(d)[0];
-        })
-        .attr("y", function (d) {
-            return path.centroid(d)[1];
-        })
-        .style("color", "black");
+        .style("fill", () => "#fff");
 };
+
+// const drawMap = (json) => {
+//   d3.csv('/static/csv/states.csv', (data) => {
+//     for (let i = 0; i < 50; i++) {
+//       const dataState = data[i].state;
+//       console.log;
+//     }
+//     drawUSStatesPath(json);
+//   });
+// };
 
 // Returns GeoJSON data for setMap to use
 const setMapData = () => {
@@ -78,10 +73,7 @@ const setMapData = () => {
 
 // Initialize map setup
 const init = () => {
-    if (rendered != true) {
-        setMap(setMapData());
-        rendered = true;
-    }
+    setMap(setMapData());
 };
 
 let delay = null;
@@ -96,6 +88,33 @@ d3.csv("/static/csv/us-states-geocoded.csv")
                 new Date(data[data.length - 1].date),
             ])
             .range([0, 20000]);
+
+        // Still need to make sense of this
+        // const svg = d3.select('svg');
+        // for (const d of data) {
+        //   d3.timeout(() => {
+        //     svg
+        //       .append('circle')
+        //       .attr('transform', `translate(${d})`)
+        //       .attr('r', 3)
+        //       .attr('fill-opacity', 1)
+        //       .attr('stroke-opacity', 0)
+        //       .transition()
+        //       .attr('fill-opacity', 0)
+        //       .attr('stroke-opacity', 1);
+        //   }, delay(d.date));
+        // }
+
+        // svg
+        //   .transition()
+        //   .ease(d3.easeLinear)
+        //   .duration(delay.range()[1])
+        //   .tween('date', () => {
+        //     const i = d3.interpolateDate(...delay.domain());
+        //     return (t) => {
+        //       return new Date(d3.timeDay(i(t)));
+        //     };
+        //   });
     })
     .catch((err) => {
         console.log(err);
@@ -108,5 +127,5 @@ const replayHandler = () => {
 const renderBtn = document.getElementById("render-btn");
 renderBtn.addEventListener("click", init);
 
-const startBtn = document.getElementById("start-btn");
-startBtn.addEventListener("click", startHandler);
+const replayBtn = document.getElementById("replay-btn");
+replayBtn.addEventListener("click", replayHandler);

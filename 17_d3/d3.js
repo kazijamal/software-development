@@ -26,7 +26,7 @@ barEnter.text(function (d) {
 });
 
 //3. Transition Code
-d3.select("body").transition().style("background-color", "black");
+d3.select("body").transition().duration(10000).style("background-color", "black");
 
 // background of body fades to black on page load
 // you can also use duration() after transition to make the transition take a different amount of time
