@@ -43,6 +43,7 @@ const setMap = (json) => {
         .style("stroke-width", "1")
         .style("fill", "#fff");
 
+    // Create labels for all states
     svg.selectAll("text")
         .data(json.features)
         .enter()
@@ -86,7 +87,7 @@ const init = () => {
 
 let delay = null;
 // Load US states JSON with forwarded geocoding (latitude and longitude)
-d3.csv("/static/csv/us-states-geocoded.csv")
+d3.csv("/static/csv/us-states-covid.csv")
     .then((data) => {
         // Map the domain difference between the beginning date of the dataset and the most recent date of the dataset to 20 seconds (20,000 milliseconds)
         delay = d3
@@ -101,8 +102,10 @@ d3.csv("/static/csv/us-states-geocoded.csv")
         console.log(err);
     });
 
-const replayHandler = () => {
-    playing = true;
+const startHandler = () => {
+    if (playing != true) {
+        playing = true;
+    }
 };
 
 const renderBtn = document.getElementById("render-btn");
