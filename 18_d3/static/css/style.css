@@ -8,6 +8,14 @@ body {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   background-color: salmon;
+  overflow: auto;
+}
+
+#map {
+  /* Fix the press start button and then horizontal scrollbar glitch */
+  overflow: auto;
+  /* margin: auto; */
+  padding-bottom: 100px;
 }
 
 button {
@@ -28,4 +36,6 @@ button:hover {
 
 text {
   color: black;
+  font: inherit;
+  font-size: 10px;
 }
