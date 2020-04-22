@@ -28,6 +28,24 @@
     <button id="render-btn">Render</button>
     <button id="start-btn">Start</button>
     <div id="map"></div>
+
+    <!-- Flask app scripts, in dependency order -->
+    <script
+      src="{{ url_for('static', filename='js/utils/cache.js')}}"
+      type="text/javascript"
+    ></script>
+    <script
+      src="{{ url_for('static', filename='js/utils/initData.js')}}"
+      type="text/javascript"
+    ></script>
+    <script
+      src="{{ url_for('static', filename='js/utils/animate.js')}}"
+      type="text/javascript"
+    ></script>
+    <script
+      src="{{ url_for('static', filename='js/utils/initMap.js')}}"
+      type="text/javascript"
+    ></script>
     <script
       src="{{ url_for('static', filename='js/script.js')}}"
       type="text/javascript"
