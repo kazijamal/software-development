@@ -1,0 +1,122 @@
+judeR -- 2019-12-19 14:30
+Team theyputhiminapeach formed, chose Jude Rizzo as project manager. Initialized repo with Flask template and linked submodule.
+
+judeR -- 2020-01-05 23:45
+Uploaded first design document and PDFS of relevant API KB cards. Updated README to display roles and APIs.
+
+kevinC -- 2020-01-06 14:30
+Tested iterating through and displaying items from a posts list with Jinja.
+
+kaziJ -- 2020-01-07 12:00
+Started experimenting with SQLAlchemy code. Set up the database with required models in a models.py file.
+
+kaziJ -- 2020-01-07 13:30
+Created a functions.py file that has various functions which modify the database and will be used in app.py as an import.
+
+ahmedS -- 2020-01-07 14:30
+Started working on base.html and created navbar.
+
+judeR -- 2020-01-07 14:45
+Helped with designing html docs, pair programmed with Ahmed.
+
+kaziJ -- 2020-01-07 17:45
+Updated functions to include more functions relating to communities, users, friends, and comments. Fixed models import issue.
+
+ahmedS -- 2020-01-07 21:00
+Made basic template pages for all main features.
+
+kevinC -- 2020-01-07 21:12
+Added basic routing
+
+kaziJ -- 2020-01-07 22:21
+Created requirements.txt file.
+
+judeR -- 2020-01-07 23:04
+Updated design document to replace instances of "group" in the database with "community", because group is a reserved keyword in SQLite. Started database primary keys with 0 instead of 1. Listed whether an API key is required for our APIs as suggested by the editors of our design document.
+
+kevinC -- 2020-01-08 06:54
+Added login page and logic for signup/login on app.py.
+
+judeR -- 2020-01-08 14:39
+Made those little boxes around the login and picked the color
+
+ahmedS -- 2020-01-08 14:49
+Added login/registration pages in templates folder & fixed-top.
+
+kaziJ -- 2020-01-08 19:57
+Updated README.md to have project description.
+
+kevinC -- 2020-01-18 23:30
+Added routing for community, made logbase.html
+
+kaziJ -- 2020-01-08 23:59
+Created functional messages and chat pages for testing.
+
+kaziJ -- 2020-01-09 08:40
+Updated friends and messages pages.
+
+kaziJ -- 2020-01-10 16:23
+Created me page and redirected profile page for current user to me page.
+
+kaziJ -- 2020-01-13 14:31
+Worked on communities and community pages. Passed data for communities.
+
+judeR -- 2020-01-13 14:36
+Started feed and designed a mock post format
+
+ahmedS -- 2020-01-13 22:14
+Retroactively adding to devlog; this weekend, worked on adding to dashboard and utilizing News API.
+Tonight, continued to work on utilizing News API.
+
+kevinC -- 2020-01-13 12:30
+Added routing for posts
+
+ahmedS -- 2020-01-13 22:40
+Hid API key for news, editing .gitignore
+Also, removing testing print statement for News API
+
+kaziJ -- 2020-01-13 23:10
+Update hiding API key to use a JSON file.
+Adding error handling for invalid API KEY.
+
+kaziJ -- 2020-01-13 23:20
+Updated launch codes in README.
+
+kaziJ -- 2020-01-13 23:59
+Updated communities page to display join or leave community buttons.
+Updated community page to show posts if user is a member.
+
+kaziJ -- 2020-01-14 09:51
+Added ability to create and view posts from community page.
+
+kevinC -- 2020-01-14 10:28
+Added javascript for messages
+
+kaziJ -- 2020-01-14 10:38
+Added ability to create and view comments on posts.
+
+judeR -- 2020-01-14 14:33
+Polished up code in feed.html and app.py
+
+kaziJ -- 2020-01-14 14:50
+Added ability to view members of a community.
+
+ahmedS -- 2020-01-14 14:50
+Completed dashboard in class, and began work on restyling
+
+kevinC -- 2020-01-14 16:30
+Added game
+
+ahmedS -- 2020-01-14 18:00
+Styling overhaul of all pages
+
+kaziJ -- 2020-01-15 00:28
+Display friends' timelines posts on feed.
+Display links to community for each community post on feed.
+
+ahmedS -- 2020-01-15 07:35
+Retroactively adding to devlog
+Completed restyling for games (snake and 'dodgeblock'), and community completed
+
+ahmedS -- 2020-01-15 07:35
+Finished project

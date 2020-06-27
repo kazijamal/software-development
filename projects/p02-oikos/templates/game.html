@@ -1,0 +1,194 @@
+{% extends "logbase.html" %}
+{% block scripts %}
+<body onload="startGame()">
+  <h1 class="display-3" style="font-weight: 700; padding-left: 5vw;">
+    Dodgeblocks
+  </h1>
+  <style>
+canvas {
+    margin-left: 5vh;
+    margin-top: 10vh;
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+<script>
+var Player;
+var Particles = [];
+var Score;
+var u = false;
+var l = false;
+var r = false;
+
+function startGame() {
+    Player = new AABB("player",30, 30, "red", 10, 20);
+    Player.gravity = 0.05;
+    Score = new AABB("text", 0,0, "black", 200, 80);
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 270;
+        this.canvas.height = 480;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, 20);
+        },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+
+    e = e || window.event;
+
+    if (e.keyCode == '38') {
+        // up arrow
+        Player.Jump();
+    }
+    else if (e.keyCode == '40') {
+        // down arrow
+    }
+    else if (e.keyCode == '37') {
+       // left arrow
+       Player.moveLeft();
+
+    }
+    else if (e.keyCode == '39') {
+       // right arrow
+       Player.moveRight();
+    }
+
+}
+function AABB(type, x, y, color, width, height) {
+    this.type = type;
+    this.score = 0;
+    this.width = width;
+    this.height = height;
+    this.velX = 0;
+    this.velY = 0;
+    this.text = "";
+    this.maxVelX = 15;
+    this.accelX = 1;
+    this.jumpY = -2;
+    this.airDec = 0.98;
+    this.groundDec = 0.95;
+    this.x = x;
+    this.y = y;
+    this.gravity = 0.5;
+    this.gravitySpeed = 0;
+    this.update = function() {
+        ctx = myGameArea.context;
+        if (this.type == "text") {
+            ctx.font = this.width + " " + this.height;
+            ctx.fillStyle = color;
+            ctx.fillText(this.text, 0, 0);
+        } else {
+            ctx.fillStyle = color;
+            this.updateGravity();
+            this.x += this.velX;
+            this.checkBounds();
+            this.y += this.velY;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+    this.moveLeft = function(){
+      this.velX -= this.accelX;
+      if(this.velX > -7){
+        this.velX = -7;
+      }
+      if (this.velX < -this.maxVelX){
+        this.velX = -this.maxVelX;
+      }
+    }
+    this.moveRight = function(){
+      this.velX += this.accelX;
+      if(this.velX < 7){
+        this.velX = 7;
+      }
+      if (this.velX > this.maxVelX){
+        this.velX = this.maxVelX;
+      }
+    }
+    this.Jump = function(){
+      if(this.y + this.velY >= 460){
+        this.velY = this.jumpY;
+      }
+    }
+    this.updateGravity = function(){
+      if(this.y + this.velY >= 460){
+        this.y = 460;
+        if(this.velY >= 0){
+          this.velY = 0;
+        }
+        this.velX *= this.groundDec;
+      } else {
+        this.velY += this.gravity;
+        this.y +=0.1;
+        this.y = this.y + this.velY;
+        this.velX *= this.airDec;
+      }
+    }
+    this.checkBounds = function(){
+      this.x = ((this.x +270) % 270);
+    }
+    this.crashWith = function(other){
+      if (this.x < other.x + other.width &&
+          this.x + this.width > other.x &&
+          this.y < other.y + other.height &&
+          this.y + this.height > other.y) {
+            return true;
+      }
+      return false;
+    }
+}
+
+function updateGameArea() {
+    var x, height
+    for (i = 0; i < Particles.length; i += 1) {
+      if(Particles[i] != null){
+        if (Player.crashWith(Particles[i])) {
+            return;
+        }
+      }
+    }
+    myGameArea.clear();
+    myGameArea.frameNo += 1;
+    if (myGameArea.frameNo == 1 || everyinterval(Math.floor(20000/myGameArea.frameNo))) {
+        height = Math.floor(Math.random()*260);
+        if(myGameArea.frameNo == 1){
+          height = 200;
+        }
+        Particles.push(new AABB("particle",height, 0, "green", 30, 80));
+    }
+    for (i = 0; i < Particles.length; i += 1) {
+      //code is iffy
+        if(Particles[i] != null){
+        Particles[i].y += 0.1;
+        if (Particles[i].y > 400){
+          Particles[i] = null;
+        }else{
+          Particles[i].update();
+        }
+      }
+    }
+    Score.text="SCORE: " + myGameArea.frameNo;
+    Score.update();
+    Player.update();
+}
+
+function everyinterval(n) {
+    if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
+    return false;
+}
+
+function accelerate(n) {
+    Player.gravity = n;
+}
+</script>
+{% endblock %}

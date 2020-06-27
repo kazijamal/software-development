@@ -1,0 +1,105 @@
+{% extends "logbase.html" %}
+
+{% block body %}
+<div class="content">
+    <h1 class="display-3" style="font-weight: 600; padding-left: 5vw; padding-top: 5vh;">Welcome, {{ user }}.</h1>
+</div>
+
+<!-- first row -->
+<div class="row" style="margin-left: 5vw; margin-right: 5vw; margin-top: 5vh;">
+    <!-- weather panel -->
+    <div class="container col-md-4 bg-light border border-primary" style="padding: 2em; border-radius: 1em;">
+        <img src="https://www.metaweather.com/static/img/weather/{{ today['weather_state_abbr'] }}.svg"
+            style="float: right;" alt="weather icon" width=160>
+        <h4>Today</h4>
+
+        <p class="m-0">
+            <b>{{ today['weather_state_name'] }}&nbsp;&nbsp;&nbsp;&nbsp;||</b>&nbsp;&nbsp;&nbsp;&nbsp;{{ today['the_temp'] }}°
+            F</p>
+        <p class="m-0"><b>High:</b> {{ today['max_temp'] }}° F</p>
+        <p class="m-0"><b>Low:</b> {{ today['min_temp'] }}° F</p>
+        <br>
+        <p class="text-secondary"><i>New York, NY</i></p>
+
+    </div>
+
+    <div class="container col-md-4 bg-light border border-primary" style="padding: 2em; border-radius: 1em;">
+        <img src="https://www.metaweather.com/static/img/weather/{{ tomorrow['weather_state_abbr'] }}.svg"
+            style="float: right;" alt="weather icon" width=160>
+        <h4>Tomorrow</h4>
+    
+        <p class="m-0">
+            <b>{{ tomorrow['weather_state_name'] }}&nbsp;&nbsp;&nbsp;&nbsp;||</b>&nbsp;&nbsp;&nbsp;&nbsp;{{ tomorrow['the_temp'] }}°
+            F</p>
+        <p class="m-0"><b>High:</b> {{ tomorrow['max_temp'] }}° F</p>
+        <p class="m-0"><b>Low:</b> {{ tomorrow['min_temp'] }}° F</p>
+        <br>
+        <p class="text-secondary"><i>New York, NY</i></p>
+    
+    </div>
+    
+    <div class="container col-md-3 bg-light border border-primary" style="padding: 2em; border-radius: 1em;">
+            <div class="container text-center p-4">
+                <div class="row" style="padding-bottom: 5%;">
+                    <a href="https://stuy.enschool.org" class="btn btn-outline-danger w-100">Stuy website</a>
+                </div>
+                <div class="row" style = "padding-bottom: 5%;">
+                    <a href="https://talos.stuy.edu" class="btn btn-outline-primary w-100">Talos</a>
+                </div>
+                <div class="row">
+                    <a href="https://www.stuyactivities.org" class="btn btn-outline-danger w-100">StuyActivities</a>
+                </div>
+            </div>
+    </div>
+</div>
+
+<!-- second row -->
+<div class="row" style="margin-left: 5vw; margin-right: 5vw; margin-top: 5vh;">
+    <!-- news panel 0 -->
+    <div class="container col mx-3 bg-light border border-primary" style="padding: 2em; border-radius: 1em;">
+        <h6 class="text-secondary">{{ news[0]['source']['name'].upper() }}</h6>
+        <h5>{{ news[0]['title'] }}</h5>
+        <a href="{{ news[0]['url'] }}">
+            {% if news[0]['urlToImage'] == "" %}
+                <img style="width: 100%; height: auto;" src="https://files.gamebanana.com/img/ss/guis/57d8908b700eb.jpg">
+            {% else %}
+                <img style="width: 100%; height: auto;" src="{{ news[0]['urlToImage'] }}">
+            {% endif %}
+        </a>
+    </div>
+
+    <!-- news panel 1 -->
+    <div class="container col mx-3 bg-light border border-primary" style="padding: 2em; border-radius: 1em;">
+        <h6 class="text-secondary">{{ news[1]['source']['name'].upper() }}</h6>
+        <h5>{{ news[1]['title'] }}</h5>
+        <a href="{{ news[1]['url'] }}">
+            {% if news[1]['urlToImage'] == "" %}
+            <img style="width: 100%; height: auto;" src="https://files.gamebanana.com/img/ss/guis/57d8908b700eb.jpg">
+            {% else %}
+            <img style="width: 100%; height: auto;" src="{{ news[1]['urlToImage'] }}">
+            {% endif %}
+        </a>
+    </div>
+
+    <!-- news panel 1 -->
+    <div class="container col mx-3 bg-light border border-primary" style="padding: 2em; border-radius: 1em;">
+        <h6 class="text-secondary">{{ news[2]['source']['name'].upper() }}</h6>
+        <h5>{{ news[2]['title'] }}</h5>
+        <a href="{{ news[2]['url'] }}">
+            {% if news[2]['urlToImage'] == "" %}
+            <img style="width: 100%; height: auto;" src="https://files.gamebanana.com/img/ss/guis/57d8908b700eb.jpg">
+            {% else %}
+            <img style="width: 100%; height: auto;" src="{{ news[2]['urlToImage'] }}">
+            {% endif %}
+        </a>
+    </div>
+</div>
+
+
+<div class="container text-center p-4">
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

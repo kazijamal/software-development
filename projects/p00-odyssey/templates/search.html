@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block body %}
+{% for message in get_flashed_messages() %}
+<i>{{ message }}</i>
+<br>
+{% endfor %}
+<center>
+  <h2>Search Results</h2>
+  <form action="/search">
+    <input type="text" name="query" value="{{ query }}" required>
+    <input type="submit" name="search-button" value="Search">
+  </form>
+  {% if stories|length == 0 %}
+  <h4>No results found for "{{ query }}"</h4>
+  {% else %}
+  <h2><pre><table>
+	{% for story in stories %}
+	<tr>
+	  {% set tmp = story[1] %}
+	  {% if tmp | length > 29 %}
+	  {% set tmp = tmp[:29] ~ "..." %}
+	  {% endif %}
+	  {% if story[2] == "edited" %}
+	  {% set type = "story" %}
+	  {% elif story[2] == "unedited" %}
+	  {% set type = "edit" %}
+	  {% endif %}
+	  <pre><td><img src="/static/arrow.png" alt="-&gt" width="18"></td><td>&nbsp;&nbsp;[<a href= "{{ type }}/{{ story[0] }}">{{tmp}}</a>]</td></pre>
+	</tr>
+	{% endfor %}
+  </table></pre></h2>
+  {% endif %}
+</center>
+{% endblock %}

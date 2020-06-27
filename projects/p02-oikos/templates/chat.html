@@ -1,0 +1,57 @@
+{% extends "logbase.html" %}
+{% block scripts %}
+<script>
+console.log("test");
+function scrollBottom() {window.scrollTo(0, 99999);}
+if (document.addEventListener) document.addEventListener("DOMContentLoaded", scrollBottom, false)
+else if (window.attachEvent) window.attachEvent("onload", scrollBottom);
+</script>
+{% endblock %}
+{% block body %}
+    <div class="content">
+        <h1 class="display-3" style="font-weight: 600; padding-left: 5vw; padding-top: 5vh;">Chat With {{ contact.displayName }}</h1>
+    </div>
+
+    <div class="container">
+        <div class="chat-panel">
+            {% for message in messages %}
+                {% if message.senderID == userID %}
+                    <div class="row no-gutters">
+                        <div class="col-md-5 offset-md-7">
+                            <div class="chat-bubble-right">
+                                {{ message.content }}
+                            </div>
+                            <p>{{ message.timestamp }}</p>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="row no-gutters">
+                        <div class="col-md-5">
+                            <div class="chat-bubble-left">
+                                {{ message.content }}
+                            </div>
+                            <p>{{ message.timestamp }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <form action="/sendmessage/{{ contact.userID }}" method="POST">
+            <div class="row">
+                <div class="col-md-11">
+                    <input name="content" type="text" class="form-control" id="content" aria-describedby="content" placeholder="Type your message here..." autofocus required>
+                </div>
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-warning">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block body %}
+     <h2 class="text-dark" style="text-align: center; padding: 1em; font-weight: bold;">Register</h2>
+     <div class="login-form" style="text-align: center; display: block;">
+          <form style="width: 50%; display: inline-block;" action="/register" method="POST">
+               <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" name="email" placeholder="Enter your stuy.edu email address"
+                         required>
+               </div>
+               <div class="form-row">
+                    <div class="form-group col-md-5">
+                         <label for="exampleInputEmail1">First name</label>
+                         <input type="text" class="form-control" name="first" placeholder="Enter your first name" required>
+                    </div>
+                    <div class="form-group col-md-5">
+                         <label for="exampleInputEmail1">Last name</label>
+                         <input type="text" class="form-control" name="last" placeholder="Enter your last name" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                         <label for="exampleInputEmail1">Grade</label>
+                         <select class="form-control" name="grade" required>
+                              <option value="Freshman">Freshman</option>
+                              <option value="Sophomore">Sophomore</option>
+                              <option value="Junior">Junior</option>
+                              <option value="Senior">Senior</option>
+                         </select>
+                    </div>
+
+               </div>
+
+               <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Enter a password" required>
+               </div>
+               <div class="form-group">
+                    <label for="exampleInputPassword1">Confirm password</label>
+                    <input type="password" class="form-control" name="confpassword" placeholder="Confirm your password"
+                         requireds>
+               </div>
+               <button type="submit" class="btn btn-danger">Submit</button> <br> <br>
+               <a class="text-primary" href="/login">Already have an account?</a>
+          </form>
+     </div>
+
+     {% for message in get_flashed_messages() %}
+          <br><br>
+          <center><b>{{ message }}</b></center>
+     {% endfor %}
+{% endblock %}
+
+{% block title %}Worldstar | Register{% endblock %}

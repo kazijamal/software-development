@@ -1,0 +1,57 @@
+{% extends "basenav.html" %}
+
+{% block title %}Strength Arena{% endblock %}
+
+{% block body %}
+<div id="title block" class="container my-4 text-center">
+  <h1>Strength Arena</h1>
+  <p class="lead">Beat a random superhero in Rock-Paper-Scissors to win 5 gold and a boost in strength!<br>You still gain a small boost in strength even if you lose!</p>
+</div>
+
+<div id="versus" class="container my-5 text-center">
+  <div class="row">
+    <div class="col">
+      <img src={{image}} width="200" alt="Picture of {{name}}" style="border: 8px outset black">
+      <br>
+      <h3>{{name}}</h3>
+    </div>
+    <div class="col-xs">
+      <h3>Versus</h3>
+    </div>
+    <div class="col">
+      <img src={{heroImage}} width="200" alt="Picture of {{heroName}}" style="border: 8px outset black">
+      <br>
+      <h3>{{heroName}}</h3>
+    </div>
+  </div>
+</div>
+
+<div id="rock paper scissors" class="container my-5 text-center">
+  <div class="row">
+    <div class="col">
+    <form action="/strengthresults" method="POST">
+      <input type="hidden" name="rpc" value="1">
+      <button class="btn btn-danger border-0 rounded-circle" type="submit" name="submit">
+        <img src="static/rock.png" width="200" alt="Rock">
+      </button>
+    </form>
+    </div>
+    <div class="col">
+    <form action="/strengthresults" method="POST">
+      <input type="hidden" name="rpc" value="2">
+      <button class="btn btn-warning border-0 rounded-circle" type="submit" name="submit">
+        <img src="static/paper.png" width="200" alt="Paper">
+      </button>
+    </form>
+    </div>
+    <div class="col">
+    <form action="/strengthresults" method="POST">
+      <input type="hidden" name="rpc" value="3">
+      <button class="btn btn-info border-0 rounded-circle" type="submit" name="submit">
+        <img src="static/scissors.png" width="200" alt="Scissors">
+      </button>
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

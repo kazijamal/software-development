@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %} Adding to {{ title }} {% endblock %}
+
+{% block body %}
+<!--
+    title 	: title of the story
+    edit[3]	: the content of the latest edit to the story
+  -->
+<h3>You are currently adding to: {{ title }}</h3>
+<pre>{{ edit[3] }}</pre>
+<br>
+<br>
+<!-- form sends data to /auth_edit for authentication -->
+<form action="/auth_edit" method="POST">
+  <!-- hidden input for the storyID, as it is already known
+       when the page is loaded, so the user doesn't need to edit
+       it -->
+  <input type="hidden" name="storyID" value={{storyID}}>
+  <label for="content"> Content (max 2048 characters)</label>
+  <br>
+  <!-- text box for a user to write their edits -->
+  <textarea rows="20" cols="75" name="content" maxlength="2048" placeholder="Add to the story!" required></textarea>
+  <br>
+  <br>
+  <!-- submit button -->
+  <input type="submit" name="submit" value="Edit Story">
+</form>
+{% endblock %}

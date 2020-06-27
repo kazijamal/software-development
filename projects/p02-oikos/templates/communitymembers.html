@@ -1,0 +1,28 @@
+{% extends "logbase.html" %}
+
+{% block body %}
+<div class="content mb-5" style="padding-left: 5vw; padding-top: 5vh; padding-right: 5vh;">
+     <h1 class="display-3" style="font-weight: 700;"><h1 class="display-3" style="font-weight: 700;">{{ community.name }}</h1>
+    <h5 class="display-5 text-secondary"><i>{{ community.description }}</i></h5>
+</div>
+
+<div class="container">
+        <div class="col">
+            <ul>
+                <h2>Members</h2>
+                <hr>
+                {% for member in members %}
+                <div class="card my-3">
+                    <h5 class="card-header">{{ member.displayName }}</h5>
+                    <div class="card-body">
+                        <a href="/profile/{{ member.userID }}" class="btn btn-warning">View Profile</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </ul>
+        </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

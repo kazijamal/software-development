@@ -1,0 +1,100 @@
+{% extends "template.html" %}
+
+{% set active_page = active_page|default('scholarships') -%}
+
+{% block title %}Scholarships{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/favorite.js') }}"></script>
+<script src="{{ url_for('static', filename='js/delete.js') }}"></script>
+{% endblock %}
+
+{% set sort_options = [
+  ('dateposted-desc', 'Date Created (Newest - Oldest)'),
+  ('dateposted-asc', 'Date Created (Oldest - Newest)'),
+  ('deadline-desc', 'Deadline (Least Recent - Most Recent)'),
+  ('deadline-asc', 'Deadline (Most Recent - Least Recent)'),
+  ('amount-asc', 'Award ($ - $$$$)'),
+  ('amount-desc', 'Award ($$$$ - $)')
+  ] %}
+
+{% block body %}
+
+<!-- SIDENAV -->
+<div class="side-container">
+  <div class="sidenav">
+    <form class="w-100" action="/scholarships" method="POST">
+      <div class="d-flex flex-row justify-content-between">
+        <span class="h5"><b>Refine Results</b></span>
+        {% if body %}
+        <a class="btn btn-outline-danger btn-sm w-25" href="/scholarships">Clear</a>
+        {% endif %}
+      </div>
+      <hr>
+      <input style="margin-bottom: 2vh;" class="form-control" type="search" name="search" placeholder="Search"
+        aria-label="Search" {% if body %} value="{{ body['search'] }}" {% endif %}>
+      <select style="margin-bottom: 2vh;" class="form-control" method="post" id="sort" name="sort">
+        {% if body %}
+        {% for value, display in sort_options %}
+        <option value="{{ value }}" {% if body['sort'] == value %} selected {% endif %}>{{ display }}</option>
+        {% endfor %}
+        {% else %}
+        {% for value, display in sort_options %}
+        <option value="{{ value }}">{{ display }}</option>
+        {% endfor %}
+        {% endif %}
+      </select>
+      <button class="btn btn-outline-primary btn-sm w-100" type="submit">Show Results</button>
+    </form>
+  </div>
+  <div id="favorite-side">
+  </div>
+</div>
+
+<!-- SCHOLARSHIPS (right) -->
+<div class="scholarships">
+  {% for scholar in scholars %}
+  <div id="{{ scholar.scholarshipID }}" class="scholar-block">
+    <br>
+
+    <a href="/scholarships/{{ scholar.scholarshipID }}">
+      <h3>{{ scholar.title }} (${{ scholar.amount }})</h3>
+    </a>
+    {% if date[scholar.scholarshipID] %}
+    <span><b>DEADLINE: {{ date[scholar.scholarshipID] }} </b></span> <br>
+    {% endif %}
+    {% if scholar.eligibility %}
+    <span><i>ELIGIBLE: {{ scholar.eligibility }}</i></span>
+    {% endif %}
+    <hr>
+
+    <!-- description -->
+    <p>{{ scholar.description }}</p>
+    <!-- links -->
+    {% for link in scholar.links %}
+    <a href="{{ link }}">{{ link }}</a> <br>
+    {% endfor %}
+
+    <button
+      style="float: right; font-size: 20px; border: 0; padding-left: 1vw; background-color: transparent; outline: none;"
+      class="text-secondary star" onclick="favorite('scholarship',{{scholar.scholarshipID}});">
+      <i class="fa fa-star" aria-hidden="true"></i>
+    </button>
+    {% if user.userType == "admin" %}
+    <a style="float: right; font-size: 20px; border: 0; padding-left: 1.5vw; background-color: transparent; outline: none;"
+      class="text-secondary star" href="/scholarships/edit/{{ scholar.scholarshipID }}">
+      <i class="fa fa-edit" aria-hidden="true"></i>
+    </a>
+    <button
+      style="float: right; font-size: 20px; border: 0; padding-left: 1vw; background-color: transparent; outline: none;"
+      class="text-secondary star" onclick="deleteObject('scholarship',{{scholar.scholarshipID}});">
+      <i class="fas fa-trash-alt" aria-hidden="true"></i>
+    </button>
+    {% endif %}
+    <br> <br>
+  </div>
+  {% endfor %}
+</div>
+
+<br>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "basenav.html" %} {% block title %}New Character{% endblock %} {%
+block body %}
+<div class="my-4 container text-center">
+  <h1>New Character Unlocked</h1>
+</div>
+
+<div id="results" class="my-5 container text-center">
+  <h4>Switched to new character:</h4>
+  <h2>{{ charName }}</h2>
+  <br />
+  <img
+    src="{{charImg}}"
+    width="200"
+    alt="character image"
+    style="border: 8px outset black"
+  />
+</div>
+
+<div class="my-5 container text-center">
+  <a href="/dashboard" class="btn btn-warning btn-lg">Return to Dashboard</a>
+</div>
+{% endblock %}

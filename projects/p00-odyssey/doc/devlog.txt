@@ -1,0 +1,175 @@
+chenT -- 2019-10-17 14:15
+Team bendyStraws formed, chose collaborative storytelling game/website project, and Tammy Chen chosen as project manager.
+
+jamalK -- 2019-10-18 14:19
+Set up GitHub repository.
+
+chenT -- 2019-10-18 14:30
+Linked submodule.
+
+chenT -- 2019-10-20 22:45
+Team bendyStraws has finished the design.pdf & uploaded it to github repository. Project name has been decided (Odyssey) as it portends greatness like the team name.
+
+chenT -- 2019-10-20 22:58
+Team bendyStraws has adjusted the margins of the design.pdf & uploaded it again. Encountered some unnecessary files (.DS_Store) being uploaded so team has added a .gitignore.
+
+chenT -- 2019-10-21 20:20
+Updated design.pdf based off of feedback given by peers during class. Added a project objective section, confirm password section in site component map & made site map clearer by adding a legend (defining the use of color).
+
+jamalK -- 2019-10-21 23:14
+INNER JOIN:
+- When using INNER JOIN on a table A with a table B, it returns rows from the A table that have a corresponding row in the B table (using a foreign key f that is a column in both A and B).
+- Can be used to find if a user edited a story by using INNER JOIN on the Story Masterlist table and the user’s User-Edits table with the story ID as a foreign key
+LEFT JOIN:
+- When using LEFT JOIN on a left table A with a right table B, it returns rows from the A table that have a corresponding row in the B table, and the rows without corresponding rows in the B table are filled with NULL values (all rows in table A are included).
+- Can be helpful to find rows available in the left table without corresponding rows in the right table.
+- We may change the User-Edits table to only contain records for stories the user edited, and then use LEFT JOIN on the Story Masterlist table and the user’s User-Edits table with the story ID as a foreign key to find the stories the user did not edit
+CROSS JOIN:
+- When using CROSS JOIN on a table A with N rows and a table B with M rows, it returns the Cartesian product, a result set that contains N*M rows.
+- We do not see a use for CROSS JOIN for the time being.
+
+chenT -- 2019-10-21 23:16
+Our team found it interesting that programming is not something the human brain is fit for, but it is still a very popular career. It is also fascinating how employees at large companies, and anyone working to keep the internet functioning has to deal with errors to prevent the entire operation from collapsing.
+Concrete actions we will take or procedures/protocols we will observe to make more awesome:
+- Understand a comprehensive design plan prior to beginning work on the technical side of things
+- If there is an issue or technical error, be sure to communicate it clearly with the team instead of using a hacky solution temporarily
+- The InterTubes™ is a dangerous place. Be cautious when parsing - most of the time, utilize what you know!
+
+caiK -- 2019-10-22 11:56
+We are planning to change the User-Edits table to only contain records for stories the user edited as a primary key, and then use LEFT JOIN on the Story Masterlist, most likely like this:
+SELECT masterlist.ID FROM Masterlist e1 LEFT JOIN User-Edits e2 ON e1.ID = e2.ID WHERE e2.ID IS NULL
+This gets all the stories that the user hasn't edited.
+
+jamalK -- 2019-10-22 14:36
+Added Flask starter template with app.py and templates folder with a base.html and miscellaneous pages.
+
+jamalK -- 2019-10-22 14:45
+Created createstory.html template and added routes for creating a new story to app.py.
+
+pehlivanianL -- 2019-10-22 22:52
+Team bendyStraws discussed different approaches to storing story data. We had previously planned to have an individual table for each story containing its edits, but after a lengthy discussion decided to change this structure to have one master story_edits table.
+This table will contain all edits to all stories, with their unique timestamp so that we can later sort these entries to obtain the complete story, or retrieve the latest edit.
+We updated the database explanations and examples to reflect this change.
+
+pehlivanianL -- 2019-10-23 00:01
+Started creating databases and started on preliminary functions and data structure.
+
+chenT -- 2019-10-23 14:12
+Started to work on authentication (user login) & fixed a slight indentation error
+
+jamalK -- 2019-10-22 14:38
+Created utl folder with __init__.py and dbfunctions.py (modified version of old database.py).
+
+caiK -- 2019-10-22 14:48
+Separated dbfunctions.py into 2 different files in order to prevent merge conflicts and changed imports to make it work.
+
+jamalK -- 2019-10-22-21:48
+Removed hyphens from filenames of files in utl folder and created dbcreatefunctions.py.
+Updated newStory() by calling functions from dbcreatefunctions.py and redirecting to the story.
+
+caiK -- 2019-10-22 14:17
+Fixed some broken code from separating the files (There were no imports to other dbfunction files in dbeditfunction.py).
+
+jamalK -- 2019-10-24 14:48
+Added working auth and logout routes.
+Created signup page and route, and working register route.
+
+chenT -- 2019-10-24 23:15
+Updated README.md with clear instructions about how to run the project (task the toid assignment)
+
+chenT -- 2019-10-25 11:36
+Updated README.md with instructions about git clone
+
+jamalK -- 2019-10-25 17:39
+Created working story/<storyID> route that allows users to read full stories.
+Added username column to story_edits table to simplify showing users on story/<storyID> route.
+Added button on home page to create a new story.
+
+caiK -- 2019-10-25 22:03
+Fixed methods for create/edit story to use usernames
+Add drop tables method for quick debugging
+Changed ordering of parameters so it is the same as the ordering of the actual tables they edit
+
+jamalK -- 2019-10-25 22:40
+Added checking if user with provided username already exists on signup.
+Added requirement for password to be at least 8 characters on signup.
+
+pehlivanianL -- 2019-10-26 12:25
+SSH'ed to retrieve database functions worked on in class (to retreive stories a user has edited, all edits, all stories, etc.).
+Included these functions in dbfunctions file.
+
+pehlivanianL -- 2019-10-26 14:07
+Began home page formatting. Included list in template to print stories a user has edited and has not edited (to read and to write).
+Included Jinja formatting to create hyperlink to each story.
+
+jamalK -- 2019-10-26 14:53
+Added navigation bar with link back to home page.
+Added search bar to home page.
+
+pehlivanianL -- 2019-10-26 14:59
+Fixed story template so that the story's info is parsed and displayed properly from the tuple.
+Added userID argument for home route function in order to pass into db functions to get stories edited, etc.
+
+jamalK -- 2019-10-26 15:19
+Implemented working search feature.
+
+caiK -- 2019-10-26 15:32
+Moved getLastEdit function from dbfunctions.py to dbeditfuncitons.py and added getstoriesedited/not edited function
+
+jamalK -- 2019-10-26 15:44
+Updated search feature to redirect to either edit or read story depending on whether or not user has contributed to the story yet.
+
+pehlivanianL -- 2019-10-26 15:51
+Included boolean logic into home page template to display a statement if there are no stories to edit/read.
+Added commit statements for databases after writing to / creating stories, as well as creating users.
+
+pehlivanianL -- 2019-10-26 16:00
+Added more data to database (after figuring out why no data was being committed before).
+
+caiK -- 2019-10-26 16:12
+Added edit page and uneditedstories page, as well as the routing for those pages.
+
+pehlivanianL -- 2019-10-26 18:05
+Kept testing and adding more test data to database.
+Figured out bug that user can create a story with no content. Edited textarea html tag to delete this whitespace.
+
+caiK -- 2019-10-26 19:44
+Fixed query for last edit to story, fixed stories showing in reverse order.
+
+caiK -- 2019-10-26 19:58
+Fixed sitemap and tables in the docs
+
+pehlivanianL -- 2019-10-26 21:55
+Ran more tests, found bug that edit story page displays first edit rather than the most recent.
+Fixed this bug by ordering edits by date in ascending order, then getting edit at last (-1) index.
+
+pehlivanianL -- 2019-10-26 23:31
+Fixed part of sitemap, most recent version in docs.
+
+caiK -- 2019-10-26 23:55
+Added comments for dbeditfunctions.py, uneditedstories.html, edit.html, and formatted all python files to pep8
+
+caiK -- 2019-10-27 00:23
+Fixed an important loophole:
+  # a loophole where a user can create a story
+  # on one tab(tab1), sign out, sign back in as another user(set sessions' userID to an ID that's not equal to the author's)
+  # this allows the author go to the edit page for the newly created story, and type in their new content.
+  # on another tab(tab2), the new user can sign out, 
+  # and sign back in as the original author (set session's userID to original author's ID)
+  # and then on tab1 the person can press submit, which would set this edit as the original author.
+ This was fixed by checking if the user edited the story again while submitting in the form.
+
+caiK -- 2019-10-27 4:20
+Made the website look noice by having tables instead of lists, and now cut off story titles with length > 29 to prevent clutter.
+Made the query in the search box in the search results page just in case people have typos andthey don't have to retype
+Centered lists and heading
+Added 'toolbar' on homepage for easier navigation, instead of scrolling to the bottom of the page
+Moved searchbar on search results page to the top
+Fix for formatted text showing up un-formatted
+  
+jamalK -- 2019-10-27 13:07
+Fixed indentation in all html files.
+
+chenT -- 2019-10-27 16:50
+Added comments in app.py, fixed README.md (slight formatting) and fixed devlog indentation 
+Looked over design.pdf + it is update to date! 

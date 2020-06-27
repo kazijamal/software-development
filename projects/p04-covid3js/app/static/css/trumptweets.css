@@ -1,0 +1,59 @@
+.article-subtitle {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  padding-top: 3rem;
+}
+
+/* Style the lines by removing the fill and applying a stroke */
+.line {
+  fill: none;
+  stroke: #ffab00;
+  stroke-width: 3;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+/* Style the dots by assigning a fill and stroke */
+/* .dot {
+  fill: #ffab00;
+  stroke: #fff;
+} */
+
+.focus circle {
+  fill: none;
+  stroke: steelblue;
+}
+
+#scatterplot {
+  width: 100%;
+  height: 30%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  opacity: 0.7;
+}
+
+.axis--x path {
+  display: none;
+}
+
+.toolTip {
+  position: absolute;
+  display: none;
+  min-width: 80px;
+  height: auto;
+  background: none repeat scroll 0 0 #ffffff;
+  border: 1px solid #6F257F;
+  padding: 14px;
+  text-align: center;
+}

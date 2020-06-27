@@ -1,0 +1,137 @@
+{% extends "base.html" %} {% set active_page = "sentiment" %} {% block title %}
+Public Media {% endblock %} {% block head %}
+<!-- CSS -->
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/publicmedia.css') }}"
+/>
+
+<!-- D3 interpolate path plugin -->
+<script
+  src="https://unpkg.com/d3-interpolate-path/build/d3-interpolate-path.min.js"
+  defer
+></script>
+
+<!-- Number of COVID-19 Articles per day script -->
+<script
+  src="{{ url_for('static', filename='js/publicmedia/num-articles-per-day.js')}}"
+  type="module"
+  defer
+></script>
+
+<!-- News domains on subjectivity ranges script -->
+<script
+  src="{{ url_for('static', filename='js/publicmedia/news-domains-on-average-subjectivity-ranges.js')}}"
+  type="module"
+  defer
+></script>
+
+<!-- Load d3-cloud -->
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.js"
+  defer
+></script>
+
+<!-- Wordcloud -->
+<script
+  src="{{ url_for('static', filename='js/publicmedia/wordcloud.js')}}"
+  type="module"
+  defer
+></script>
+{% endblock %} {% block body %}
+<div class="content">
+  <div class="article">
+    <h1 class="article-heading">Public Media</h1>
+    <p class="article-subheading">
+      Displays patterns and analysis of public opinion during the COVID-19
+      pandemic
+    </p>
+    <p>
+      The following line chart shows the amount of COVID-19 articles written
+      over time.
+    </p>
+    <div class="toggle-view-btns">
+      <div class="btn-group" role="group">
+        <button
+          type="button"
+          class="btn btn-warning"
+          id="toggle-daily-view"
+          disabled
+        >
+          Daily
+        </button>
+        <button
+          type="button"
+          class="btn btn-warning"
+          id="toggle-weekly-view"
+          disabled
+        >
+          Weekly
+        </button>
+        <button
+          type="button"
+          class="btn btn-warning"
+          id="toggle-monthly-view"
+          disabled
+        >
+          Monthly
+        </button>
+      </div>
+    </div>
+
+    <div id="line-chart"></div>
+    <p>
+      There is a dip in the number of articles written on the weekends because
+      most people read news on business days. Thus, less articles will be
+      written on the days where less people read them. We see that
+      <b>growth in COVID-related articles began on January 19, 2020</b>. And
+      February 23rd onwards, the
+      <b>number of articles began growing exponentially</b>. This is around the
+      time when the first case of local transmission of the virus was discovered
+      in the United States (February 26, 2020). The number of articles start
+      <b>decreasing from March 29th onwards</b> and start
+      <b>stagnating from April 5th onwards</b>. We are not sure what causes this
+      stagnation, perhaps because our data source did not discover any more
+      articles in their time of recording this data.
+    </p>
+    <p>
+      The following bar chart shows the subjectivity ratings of COVID-19-related
+      news outlets (or domains).
+    </p>
+    <div id="bar-chart"></div>
+    <p>
+      The subjectivity values range from 0.0 to 1.0, inclusive, where
+      <b>0.0 is most objective and 1.0 is most subjective</b>. This data shows
+      that the most objective COVID-news sources are
+      <b>Wired, Finsmes, and Altassets</b>. While the most subjective sources
+      are <b>Mashable, Iotworldtoday, and Dzone</b>.
+    </p>
+    <p>
+      The following word cloud shows the most common words written in
+      COVID-19-related articles.
+    </p>
+    <div id="wordcloud"></div>
+    <div class="legend">
+      Commonly used words are larger and slightly faded in color. Less common
+      words are smaller and darker.
+    </div>
+    <p>
+      The most common words are
+      <b>names of countries, days of the week, and the name of news outlets</b>.
+      The days of the week are to be expected because they are listed as part of
+      the article publish date, among other details. The frequency in the names
+      of proper locations (i.e. U.S., China, U.K.) shows how widespread COVID
+      is, with <b>China taking the lead in frequency</b> (to be expected since
+      Wuhan, China is COVID's location of origin).
+    </p>
+  </div>
+  <b>Sources</b><br />
+  COVID-19 public media data retrieved from a
+  <a
+    class="link"
+    href="https://www.kaggle.com/jannalipenkova/covid19-public-media-dataset"
+    >Kaggle dataset by Anacode and shared by Janna Lipenkova</a
+  >.
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+.bg-primary {
+	background-color: indigo !important;
+}
+
+.border-primary {
+	color: indigo !important;
+}
+.nav-item {
+	color: white;
+}
+
+.nav-item:hover {
+	color: plum;
+}
+
+.navbar .navbar-brand {
+	font-size: 36px;
+}
+
+.border-primary {
+	border-color: indigo !important;
+}
+
+.chat-bubble-left {
+	padding: 10px 14px;
+	background: silver;
+	margin: 10px 30px;
+	border-radius: 9px;
+    position: relative;
+    left: 0;
+	margin-left: -20px;
+}
+
+.chat-bubble-right {
+	padding: 10px 14px;
+    background: rgb(158, 13, 202);
+    color: white;
+	margin: 10px 30px;
+	border-radius: 9px;
+	position: relative;
+	right: 0;
+	margin-right: -20px;
+}
+
+pre {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}

@@ -1,0 +1,177 @@
+Rick and Morty’s Minigame Madness by Team qafee -- Kevin Cai, Tammy Chen, Kazi Jamal & Taejoon Kim
+SoftDev1 pd9
+P #01 — ArRESTed Development
+2019-11-14
+
+kevinC -- 2019-11-14 14:30
+Team qafee formed, chose Kevin Cai as project manager. Initialized repo, linked submodule.
+
+kevinC -- 2019-11-15 20:08
+Added devlog and gitignore.
+
+kevinC -- 2019-11-17 23:25
+Added first design document, updated README to display roles and summary.
+
+kaziJ -- 2019-11-17 23:27
+Fixed minor error in design.pdf.
+
+kaziJ -- 2019-11-18 14:49
+Added base html and app.py files.
+
+kevinC -- 2019-11-18 17:38
+Update design document's component map section to show an actual component map
+
+kaziJ -- 2019-11-19 12:30
+Added dashboard.html template which is not using jinja yet.
+
+kaziJ -- 2019-11-19 14:48
+Updated signup.html template to include choosing starter character, but it does not use jinja yet.
+
+tammyC -- 2019-11-19 14:59
+Started working on trivia.html and added minigame routes in app.py
+
+kevinC -- 2019-11-19 20:38
+Finished login system, started work on dashboard to reflect the user's selected character image and name.
+  -fix bug where you can leave character selection blank
+  -fix bug where 2 accounts could be logged in at once
+  -fix logout button showing in login page
+
+kaziJ -- 2019-11-19 21:14
+Changed login.html template to look more like signup.html.
+Removed navbar from base.html and added it to basenav.html, which pages other than login.html and signup.html will extend.
+
+kaziJ -- 2019-11-19 13:32
+Added lotto.html template.
+
+kaziJ -- 2019-11-19 13:41
+Added requirements.txt.
+
+taejoonK -- 2019-11-20 13:43
+Added strength.html. Included images into static.
+
+kevinC -- 2019-11-20 23:00
+Moved requirements.txt to /doc/
+Updated README to reflect new way of installing packages.
+
+kevinC -- 2019-11-21 06:05
+About Egoless Programming:
+
+Our team found the idea of someone "owning" code very interesting, and due to cognitive dissonance groups can subconsciously end up with
+worse code if they worked by themselves and lack communication. It's also really interesting the degrees to which programmers can
+commpletely ignore their problems. To avoid these common pitfalls, we aim to:
+
+  - Have someone else in the group look over the code you wrote, then show it to another member
+  - Always talk about new ideas with everyone else first, and ask for their feedback, even if you think it's not worth discussing.
+  - Not to get too attached to code because it can lead to errors that never get revealed to the rest of the group.
+
+kaziJ -- 2019-11-21 12:29
+Added jinja to dashboard.html to display character stats from database.
+
+tammyC -- 2019-11-21 14:23
+Added flag.jpg
+
+tammyC -- 2019-11-21 15:00
+Added style.css file and continued to work on trivia.html
+
+kaziJ -- 2019-11-21 15:39
+Created /lottoresults route and lottoresults.html template.
+
+kaziJ -- 2019-11-22 14:49
+Updated /lottoresults route with actions for winner or loser.
+
+taejoonK -- 2019-11-22 13:51
+Added extra buttons and images in strength.html.
+
+kaziJ -- 2019-11-23 14:06
+Updated /lottoresults, /lottoswitch, and /lottogold routes.
+Lucky Lotto is now fully functional, still need to implement security to prevent refreshing these routes and increasing stats.
+
+kaziJ -- 2019-11-24 15:01
+Added login_required decorator in app.py.
+Modified app.py to add categories "error" and "success" to flashed messages.
+Modified base.html to change alert color based on flashed message category and made alerts dismissable.
+
+taejoonK -- 2019-11-25 5:26
+Finished most of strength.html.
+Added strengthresults.html; still needs some adjustments.
+
+kevinC -- 2019-11-25 11:34
+Started to add loop to show all character images in collections
+Added jinja templating in collection.html
+
+kaziJ -- 2019-11-25 12:00
+Linked style.css stylesheet in base.html.
+
+kevinC -- 2019-11-25 14:27
+"HOME STRETCH PLAN"
+Our prioritized todo list:
+  - Finish the Strength results page: 11/27           <Taejoon Kim>
+  - Finish the Intelligence Trivia minigame: 11/27    <Tammy Chen>
+  - Finish the Collection Page: 11/28                 <Kevin Cai>
+  - Finish the leveling system: 11/28                  <Kazi Jamal>
+Additional features:
+  - Add the ability to switch between characters: 12/4                  <Kevin Cai>
+  - Modify Bootstrap styling to be consistent between pages: 12/2     <Tammy Chen>
+
+kaziJ -- 2019-11-25 23:52
+Added /levelunlock route and page which unlocks a new character if the user levels up and the new level is a multiple of five.
+This currently only functions when the user levels up from the lotto minigame (still needs to be implemented for experience earned through strength and trivia minigames).
+
+kaziJ -- 2019-11-25 22:11
+Added names as figure captions to character collection page.
+
+kevinC -- 2019-11-26 06:52
+Design document changes:
+-Removed authnetication routes from minigames as they were unecessary
+-Removed extra character selection page as it is part of the register page
+-Added extra routes for accepting(switch character) and rejecting(recieve gold) lotto results
+-Added extra route to change character from collection.
+
+kaziJ -- 2019-11-26 14:12
+Updated style.css.
+
+tammyC -- 2019-11-26 15:30
+Working on trivia minigame (got the questions to display) + merge edits
+
+kaziJ -- 2019-11-27 11:00
+Updated login page styling.
+Updated sign up page styling.
+
+kaziJ -- 2019-11-27 14:43
+Added cap of 100 to stats.
+
+tammyC -- 2019-11-29 20:03
+Pushed forgotten-to-push trivia code from Wednesday + merge
+
+tammyC -- 2019-11-30 23:45
+Could not figure out how to pass dictionary via argument into the next route, will switch tactics & use a trivia database
+
+tammyC -- 2019-12-01 24:02
+Created trivia database
+
+tammyC -- 2019-12-02 22:48
+Brushed up trivia minigame, implemented the triviaresults.html page, and tidied code up
+
+kaziJ -- 2019-12-03 01:35
+Added comments to lotto minigame section of app.py.
+Added docstrings to most of the functions in dbfunctions.py.
+
+tammyC -- 2019-12-03 09:23
+Added progress bars inside trivia
+
+tammyC -- 2019-12-03 18:35
+Fixed styling for strength arena
+
+kevinC -- 2019-12-03 19:53
+Added ability to switch characters
+
+tammyC -- 2019-12-03 21:16
+Fixed HTML symbols and got them to show
+
+taejoonK -- 2019-12-03 22:53
+Finished with the adjustments for strengthresults.html. Made style consistent with the other minigames.
+Added comments to strength minigame section of app.py.
+
+kevinC -- 2019-12-04 00:07
+Fixed devlog.txt formatting. Changed design doc by adding the trivia table, which is atable used to store trivia questions
+in the trivia minigame. Added final stat changes for each minigame.

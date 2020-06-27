@@ -1,0 +1,84 @@
+{% extends "logbase.html" %}
+
+{% block body %}
+    <div class="content">
+        <h1 class="display-3" style="font-weight: 700; padding-left: 5vw; padding-top: 5vh;">Friends</h1>
+    </div>
+
+    <div class="container mb-5">
+        <form action="/searchfriends" method="POST">
+            <div class="row">
+                <div class="col-md-1">
+                    <h4>Search</h4>
+                </div>
+                <div class="col-md-8">
+                    <input name="query" type="text" class="form-control" id="query" aria-describedby="query" placeholder="Search for friends...">
+                </div>
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-warning">Search</button>
+                </div>
+                <div class="col-md-2">
+                    <a href="/allusers" class="btn btn-warning">View All Users</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row m-5">
+        <div class="col">
+            <ul>
+                <h2>People</h2>
+                <hr>
+                {% for user in users %}
+                <div class="card my-3">
+                    <h5 class="card-header">{{ user.displayName }}</h5>
+                    <div class="card-body">
+                        <a href="/profile/{{ user.userID }}" class="btn btn-warning">View Profile</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col">
+            <ul>
+                <h2>Friend Requests</h2>
+                <hr>
+                <h4>Received</h4>
+                {% if not friendrequests %}
+                <p>No friend requests.</p>
+                {% else %}
+                {% for friendrequest in friendrequests %}
+                <div class="card my-3">
+                    <h5 class="card-header">{{ friendrequests[friendrequest].displayName }}</h5>
+                    <div class="card-body">
+                        <p>Timestamp: {{ friendrequest.timestamp }}</p>
+                        <a href="/profile/{{ friendrequests[friendrequest].userID }}" class="btn btn-warning">View Profile</a>
+                        <a href="/acceptfriendrequest/{{ friendrequest.requestID }}" class="btn btn-success">Accept Request</a>
+                        <a href="/declinefriendrequest/{{ friendrequest.requestID }}" class="btn btn-danger">Decline Request</a>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+                <br>
+                <h4>Pending</h4>
+                {% if not pendingfriendrequests %}
+                <p>No pending friend requests.</p>
+                {% else %}
+                {% for pendingfriendrequest in pendingfriendrequests %}
+                <div class="card my-3">
+                    <h5 class="card-header">{{ pendingfriendrequests[pendingfriendrequest].displayName }}</h5>
+                    <div class="card-body">
+                        <p>Timestamp: {{ pendingfriendrequest.timestamp }}</p>
+                        <a href="/profile/{{ pendingfriendrequests[pendingfriendrequest].userID }}" class="btn btn-warning">View Profile</a>
+                        <a href="/declinefriendrequest/{{ pendingfriendrequest.requestID }}" class="btn btn-danger">Cancel Request</a>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

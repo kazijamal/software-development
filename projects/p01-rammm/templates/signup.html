@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block body %}
+<div class="container text-center">
+  <h1 class="font-weight-bold">Rick and Morty's Minigame Madness</h1>
+</div>
+
+<div class="registerform container-fluid">
+  <div class="row">
+    <div class="text-center col-sm-10 col-md-10 col-lg-7 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h3 class="card-title">Sign Up</h3>
+          <form action="/register" method="POST" class="form-signin">
+            <div class="form-label-group">
+	      <label for="username">Username</label>
+	      <input type="text" class="form-control" name="username" placeholder="Enter username" required>
+            </div>
+	    <div class="form-row">
+              <div class="form-label-group col">
+		<label for="password">Password</label>
+		<input type="password" class="form-control" name="password" placeholder="Create a password" required>
+              </div>
+	      <div class="form-label-group col">
+		<label for="password2">Confirm Password</label>
+		<input type="password" class="form-control" name="password2" placeholder="Confirm your password" required>
+	      </div>
+	    </div>
+	    <br>
+	    <h3 class="card-title">Choose Your Starter Character</h3>
+	    <div id="starterImg" class="py-3 row">
+	      <div class="col">
+		<img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" width="200" alt="character image" style="border: 8px outset black">
+	      </div>
+	      <div class="col">
+		<img src="https://rickandmortyapi.com/api/character/avatar/2.jpeg" width="200" alt="character image" style="border: 8px outset black">
+	      </div>
+	      <div class="col">
+		<img src="https://rickandmortyapi.com/api/character/avatar/3.jpeg" width="200" alt="character image" style="border: 8px outset black">
+	      </div>
+	    </div>
+	    <div id="starterForm" class="py-3 row">
+	      <div class="col custom-control">
+		<input class="form-check-input" type="radio" name="starterSelect" id="starter1" value="1" required>
+		<label class="form-check-label" for="starter1">Rick Sanchez</label>
+	      </div>
+	      <div class="col">
+		<input class="form-check-input" type="radio" name="starterSelect" id="starter2" value="2">
+		<label class="form-check-label" for="starter2">Morty Smith</label>
+	      </div>
+	      <div class="col">
+		<input class="form-check-input" type="radio" name="starterSelect" id="starter3" value="3">
+		<label class="form-check-label" for="starter3">Summer Smith</label>
+	      </div>
+	    </div>
+            <button class="mt-4 mx-auto btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign Up</button>
+          </form>
+        </div>
+	<p>Already have an account? <a href="/login">Log In</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

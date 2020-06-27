@@ -1,0 +1,38 @@
+{% extends "logbase.html" %}
+
+{% block body %}
+    <div class="content" style="padding-left: 5vw; padding-top: 5vh; padding-right: 5vw;">
+        <h1 class="display-3" style="font-weight: 700;">{{ user.displayName }}</h1>
+        <h3 class="display-5 text-secondary"><i>{{ user.grade }}</i> || <i>{{ user.email }}</i></h1>
+        {% if not isFriend %}
+            <br>
+            <div class="text-center">
+                <a href="/sendfriendrequest/{{ user.userID }}" class="btn btn-outline-warning w-100">Send friend request</a>
+            </div>
+        {% endif %}
+    </div>
+    <div style="padding-left: 5vw; padding-top: 5vh; padding-right: 5vw;">
+        <h2>Timeline</h2>
+        <hr>
+        {% if isFriend %}
+            {% for post in posts %}
+            <div class="row" style="margin-top: 5vh;">
+                <div class="container col-md-10 bg-light w-100 border border-primary" style="padding: 2em; border-radius: 1em;">
+                    <div class="col">
+                        <h2>{{ post.title }}</h2>
+                        <h5 class="text-secondary">{{ post.timestamp }}<h5>
+                        <hr>
+                        <pre>{{ post.content }}</pre>
+                        <a href="/post/{{ post.postID }}" class="btn btn-warning">View post & comment</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p> You must be friends with this person to see their posts! </p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

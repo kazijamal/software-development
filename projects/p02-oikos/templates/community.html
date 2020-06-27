@@ -1,0 +1,79 @@
+{% extends "logbase.html" %}
+{% block body %}
+<div class="content mb-4" style="padding-left: 5vw; padding-top: 5vh; padding-right: 5vw;">
+    <h1 class="display-3" style="font-weight: 700;">{{ community.name }}</h1>
+    <h5 class="display-5 text-secondary"><i>{{ community.description }}</i></h5>
+{% if incommunity %}
+    <br>
+    <a data-toggle="modal" data-target="#newCommunityPostModal" class="btn btn-outline-warning btn-block">Make a post</a>
+    <br>
+    <div class="btn-group w-100" role="group" aria-label="button group">
+        <a href="/leavecommunity/{{ community.communityID }}" class="btn btn-danger">Leave this community</a>
+        <a href="/community/{{ community.communityID }}/members" class="btn btn-success">View members</a>
+    </div>
+    
+    
+</div>
+
+<div class="text-center">
+    <div class="modal fade" id="newCommunityPostModal" tabindex="-1" role="dialog"
+        aria-labelledby="newCommunityPostModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">New post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/community/{{ community.communityID }}/post" method=POST>
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input name="title" type="text" class="form-control" id="title" placeholder="Enter title"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Content</label>
+                            <textarea name="content" rows="8" class="form-control" id="content"
+                                placeholder="Enter content" required></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-warning">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="padding-left: 5vw; padding-top: 5vh; padding-right: 5vw;">
+    <h2>Timeline</h2>
+    <hr>
+    {% for post in posts %}
+    <div class="row" style="margin-top: 5vh;">
+        <div class="container col-md-10 bg-light w-100 border border-primary" style="padding: 2em; border-radius: 1em;">
+            <div class="col">
+                <h2>{{ post.title }}</h2>
+                <h5 class="text-secondary"><i>{{ posts[post].displayName }}</i> :: {{ post.timestamp }}<h5>
+                        <hr>
+                        <pre>{{ post.content }}</pre>
+                        <a href="/post/{{ post.postID }}" class="btn btn-warning">View post & comment</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% else %}
+<div class="container">
+    <a href="/joincommunity/{{ community.communityID }}" class="btn btn-success w-100">Join this community</a>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

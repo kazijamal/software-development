@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    {% block header %}
+    <title>{% block title %} {% endblock %} | Odyssey</title>
+    {% endblock %}
+  </head>
+  <header>
+    <center>
+      <a href="/"><img src="/static/odyssey.jpg" alt="Odyssey" width="250"></a>
+    </center>
+  </header>
+
+  <body>
+    {% block body %} {% endblock %}
+  </body>
+  <footer>
+    {% block footer %} {% endblock %}
+    <p>&copy; Copyright 2019 Team bendyStraws -- Kevin Cai, Tammy Chen, Kazi Jamal & Lauren Pehlivanian</p>
+  </footer>
+
+</html>

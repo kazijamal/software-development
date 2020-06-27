@@ -1,0 +1,124 @@
+{% extends "basenav.html" %}
+
+{% block title %}Strength Arena Results{% endblock %}
+
+{% block body %}
+<div id="title block" class="container my-4 text-center">
+  <h1>Strength Arena Results</h1>
+</div>
+
+<div id="versus" class="container my-5 text-center">
+  <div class="row">
+    <div class="col">
+      {% if isWinner %}
+      <h3 class="text-warning">Winner</h3>
+      {% elif userResult == heroResult %}
+      <h3>Tie</h3>
+      {% else %}
+      <h3>Loser</h3>
+      {% endif %}
+      <img src={{image}} width="200" alt="Picture of {{name}}" style="border: 8px outset black">
+      <br>
+      <h3>{{name}}</h3>
+    </div>
+    <div class="col">
+      {% if isWinner %}
+      <h3>Loser</h3>
+      {% elif userResult == heroResult %}
+      <h3>Tie</h3>
+      {% else %}
+      <h3 class="text-warning">Winner</h3>
+      {% endif %}
+      <img src={{heroImage}} width="200" alt="Picture of {{heroName}}" style="border: 8px outset black">
+      <br>
+      <h3>{{heroName}}</h3>
+    </div>
+  </div>
+</div>
+
+<div id="rock paper scissors" class="container my-5 text-center">
+  <div class="row">
+    <div class="col">
+      {% if userResult == 1 %}
+      <img src="static/rock.png" width="200" alt="Rock">
+      {% elif userResult == 2 %}
+      <img src="static/paper.png" width="200" alt="Paper">
+      {% else %}
+      <img src="static/scissors.png" width="200" alt="Scissors">
+      {% endif %}
+    </div>
+    <div class="col">
+      {% if heroResult == 1 %}
+      <img src="static/rock.png" width="200" alt="Rock">
+      {% elif heroResult == 2 %}
+      <img src="static/paper.png" width="200" alt="Paper">
+      {% else %}
+      <img src="static/scissors.png" width="200" alt="Scissors">
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div id="stats" class="my-5 container text-center">
+  <div class="row">
+    <div class="col-sm-3">
+      <h3>Strength</h3>
+    </div>
+    <div class="col-sm-7 pt-2">
+      <div class="progress">
+        <div
+          class="progress-bar bg-danger"
+          role="progressbar"
+          style="width: {{ strength }}%"
+          aria-valuenow="{{ strength }}"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        ></div>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <h3>{{ strength }}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <h3>Level {{ (xp/100 + 1) | int }}</h3>
+    </div>
+    <div class="col-sm-7 pt-2">
+      <div class="progress">
+        <div
+          class="progress-bar bg-primary progress-bar-striped progress-bar-animated"
+          role="progressbar"
+          style="width: {{ (xp%100) | int }}%"
+          aria-valuenow="{{ (xp%100) | int}}"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        ></div>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <h3>{{ xp%100 }}/100</h3>
+    </div>
+  </div>
+  <div>
+    {% if isWinner %}
+    <img class="d-inline" src="/static/gold.png" width="50" alt="gold" />
+    <h1 class="d-inline">+5</h1>
+    {% endif %}
+    {% if userResult == heroResult %}
+    <img class="d-inline" src="/static/gold.png" width="50" alt="gold" />
+    <h1 class="d-inline">+2</h1>
+    {% endif %}
+  </div>
+</div>
+
+<div class="my-5 container text-center">
+  <a href="
+    {% if leveledUp %}
+    /dashboard/levelup
+    {% else %}
+    /dashboard
+    {% endif %}
+  " class="btn btn-danger btn-lg">Return to Dashboard</a>
+</div>
+{% endblock %}

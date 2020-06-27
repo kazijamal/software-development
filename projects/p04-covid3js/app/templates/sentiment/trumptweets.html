@@ -1,0 +1,69 @@
+{% extends "base.html" %} {% set active_page = "sentiment" %} {% block title %}
+Trump Tweets {% endblock %} {% block head %}
+<!-- CSS -->
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/trumptweets.css') }}"
+/>
+
+<!-- Trump tweets on polarity ranges script -->
+<script
+  src="{{ url_for('static', filename='js/trumptweets/trump-tweets-on-polarity-range.js')}}"
+  type="module"
+  defer
+></script>
+
+<!-- Trump tweets on polarity range brackets script -->
+<script
+  src="{{ url_for('static', filename='js/trumptweets/trump-tweets-on-polarity-ranges.js')}}"
+  type="module"
+  defer
+></script>
+
+{% endblock %} {% block body %}
+
+<div class="content">
+  <div class="article">
+    <h1 class="article-heading">Trump Tweets</h1>
+    <p class="article-subheading">
+      Sentiment analysis on tweets from Donald Trump, the president of the
+      United States
+    </p>
+    <p>
+      The following scatterplot shows the sentiment values of Trump tweets
+      during the COVID-19 pandemic.
+    </p>
+    <div id="scatterplot"></div>
+    <p>
+      The polarity values on the y-axis range from -1.0 to 1.0, inclusive, where
+      -1.0 is most negative and 1.0 is most positive. The range of the x-axis is
+      the time between <b>January 1, 2020</b> and <b>April 15, 2020</b>.
+    </p>
+    <p>
+      The following bar chart shows a more discrete perspective of the
+      previously shown data, where different ranges are created (in intervals of
+      0.2 within the overall range of [-1.0, 1.0]) and the frequency of tweets
+      that belong in each range is recorded.
+    </p>
+    <div id="bar-chart"></div>
+    <p>
+      Each tweet that is less than or equal to the right endpoint of each range
+      is considered to be in that range. For example, if a tweet had a polarity
+      rating of 0.0, we would categorize that to be in the -0.2 to 0.0 range. We
+      see that the <b>majority</b> of the tweets are
+      <b>within the -0.2 to 0.0 range</b>. We also see that the barchart is
+      <b>skewed to the right</b>. This means the majority of the tweets are
+      positive. However, there are many <b>neutral tweets</b> that are
+      <b>rated as 0.0</b> and are <b>counted in the -0.2 to 0.0 range</b>.
+    </p>
+  </div>
+  <div class="article-content" id="sources">
+    <b>Sources</b><br />
+    Trump Tweets data retrieved from a
+    <a class="link" href="https://www.kaggle.com/austinreese/trump-tweets"
+      >Kaggle dataset by Austin Reese</a
+    >.
+  </div>
+</div>
+
+{% endblock %}

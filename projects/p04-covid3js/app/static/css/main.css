@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 2rem;
+    font-family: "Open Sans", sans-serif;
+    max-width: 1080px;
+    margin: auto;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
+
+.link {
+    color: slategray;
+}
+
+.link:hover {
+    color: black;
+}
+
+/* NAVBAR START */
+
+.navbar {
+    display: block;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.navbar-top {
+    margin: 1rem 0rem;
+}
+
+.navbar-top h1 {
+    font-family: "Roboto Mono", monospace;
+    font-size: 1.75rem;
+    font-weight: 300;
+}
+
+.navbar-top h1 .title {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.navbar-hr {
+    border: 2px solid black;
+}
+
+.navbar-bottom {
+    margin: 1rem 0rem;
+}
+
+.navbar-bottom ul {
+    list-style-type: none;
+}
+
+.navbar-bottom li {
+    display: inline;
+    margin-right: 2rem;
+}
+
+.navbar-bottom li a {
+    text-decoration: none;
+    color: rgb(100, 100, 100);
+}
+
+.navbar-bottom li a:hover {
+    color: rgb(150, 150, 150);
+}
+
+.navbar-bottom li .active {
+    color: black;
+    font-weight: 700;
+}
+
+/* NAVBAR END */
+
+/* DASHBOARD START */
+
+.case-col {
+    padding: 1rem;
+}
+
+.case {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.case-description {
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+.confirmed {
+    background-color: green;
+}
+
+#states-choropleth-section {
+    margin-top: 50px;
+    text-align: center;
+}
+
+#states-choropleth-container {
+    margin-top: 50px;
+    /* Fix the press start button and then horizontal scrollbar glitch */
+    overflow: auto;
+    /* margin: auto; */
+    padding-bottom: 100px;
+}
+
+#states-choropleth-container text {
+    color: black;
+    font: inherit;
+    font-size: 10px;
+}
+
+/* DASHBOARD END */
+
+/* ORGANIZATION START */
+
+.subheading {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.subheading-hr {
+    border: 1px solid black;
+}
+
+/* ORGANIZATION END */
+
+/* ARTICLE PREVIEW START */
+
+.article-preview {
+    padding: 2rem 0;
+    border-bottom: 1px solid silver;
+    display: flex;
+    flex-direction: row;
+}
+
+.preview-img {
+    width: 300px;
+    margin-right: 2rem;
+}
+
+.preview-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.preview-description {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    font-family: "Roboto Mono", monospace;
+}
+
+/* ARTICLE PREVIEW END */
+
+/* ARTICLE START */
+
+.article-heading {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    padding: 1rem;
+}
+
+.article-subheading {
+    text-align: center;
+    font-size: 1rem;
+    font-family: "Roboto Mono", monospace;
+}
+
+.article-content {
+    padding: 0.1rem;
+}
+
+/* ARTICLE END */
+
+/* ABOUT START */
+
+.about {
+    font-family: "Roboto Mono", monospace;
+}
+
+/* ABOUT END */
+
+/* MTA LINE GRAPH START */
+
+#line-graph {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+/* MTA LINE GRAPH END */
+
+/* NUMBERS START */
+
+.number-col {
+    padding: 1rem;
+}
+
+.number {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.number-description {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* NUMBERS END */
+
+/* View buttons */
+.toggle-view-btns {
+    width: 100%;
+    display: inline-block;
+    flex-flow: column;
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-family: inherit;
+}
+
+.noselect {
+    -webkit-touch-callout: default; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+}

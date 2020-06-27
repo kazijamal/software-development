@@ -1,0 +1,39 @@
+{% extends "logbase.html" %}
+
+{% block body %}
+    <div class="container w-100 bg-light border border-primary" style="padding: 2em; margin-top: 5vh; border-radius: 1em;">
+        <div class="col">
+            <h2>{{ post.title }}</h2>
+            <h5> <i>{{ creator.displayName }}</i> :: {{ post.timestamp }}<h5>
+            <hr>
+            <pre>{{ post.content }}</pre>
+            <hr>
+            {% if not comments %}
+            <p class="text-secondary">No comments.</p>
+            {% else %}
+            {% for comment in comments %}
+            <div class="card my-3">
+                <div class="card-body">
+                    <h6 class="text-secondary"><i>{{ comments[comment].displayName.upper() }}</i> </h6>
+                    <h6 class="text">{{ comment.content }}</h6>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+            <hr>
+            <form action="/writecomment/{{ post.postID }}" method="POST">
+                <div class="row">
+                    <div class="col-md-10">
+                        <input name="content" type="text" class="form-control" id="content" aria-describedby="content" placeholder="Write a comment here...">
+                    </div>
+                    <div class="col-md-1">
+                        <button type="submit" class="btn btn-warning">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "basenav.html" %}
+
+{% block title %}Lucky Lotto{% endblock %}
+
+{% block body %}
+<div class="my-4 container text-center">
+  <h1>Lucky Lotto</h1>
+  <p class="lead">Spend 10 gold to get a chance at earning a new character and increasing your luck stat</p>
+</div>
+
+<div id="lotto" class="my-5 container text-center">
+  <div class="alert alert-danger" role="alert">
+    <h1 class="font-weight-bold">🎰 🎰 🎰 BIG WIN 🎰 🎰 🎰</h1>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+	<img class="card-img-top" style="border: black solid 10px; border-radius: 10px;" src="/static/slot.jpg" alt="slot">
+    </div>
+    <div class="col-sm">
+	<img class="card-img-top" style="border: black solid 10px; border-radius: 10px;" src="/static/slot.jpg" alt="slot">
+    </div>
+    <div class="col-sm">
+	<img class="card-img-top" style="border: black solid 10px; border-radius: 10px;" src="/static/slot.jpg" alt="slot">
+    </div>
+  </div>
+</div>
+
+<div class="my-5 container text-center">
+    <a href="/lottoresults" class="btn btn-warning btn-lg">Spend 10 Gold and Spin</a>
+</div>
+{% endblock %}

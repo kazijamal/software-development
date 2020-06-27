@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block body %}
+     <br> <br>
+     <h2 class="text-dark" style="text-align: center; padding: 1em; font-weight: bold;">Login</h2>
+
+     <div class="login-form" style="text-align: center; display: block;">
+          <form action="/auth" method="POST" style="width: 50%; display: inline-block;">
+               <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="text" class="form-control" name="email" placeholder="Enter your email address" required>
+               </div>
+
+               <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Enter your password" required>
+               </div>
+               <button type="submit" class="btn btn-primary">Submit</button> <br> <br>
+               <a class="text-danger" href="/signup">Don't have an account?</a>
+          </form>
+     </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

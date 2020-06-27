@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% set active_page = "dashboard" %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block body %}
+
+<div class="content">
+	<div class="article">
+		<h1 class="article-heading">COVID-19</h1>
+		<p class="article-subheading">Data visualization of COVID-19 in the United States of America</p>
+	</div>
+	<div class="case-stats row">
+		<div class="case-col col-md-6">
+			<h1 class="case">{{ confirmed }}</h1>
+			<p class="case-description">confirmed</p>
+		</div>
+		<div class="case-col col-md-6">
+			<h1 class="case">{{ active }}</h1>
+			<p class="case-description">active</p>
+		</div>
+		<div class="case-col col-md-6">
+			<h1 class="case">{{ recovered }}</h1>
+			<p class="case-description">recovered</p>
+		</div>
+		<div class="case-col col-md-6">
+			<h1 class="case">{{ deaths }}</h1>
+			<p class="case-description">deaths</p>
+		</div>
+	</div>
+	<div id="us-line-container"></div>
+	<div id="states-choropleth-section">
+		<h5 id="date">2020-01-21</h5>
+		<button id="start-btn" class="btn btn-outline-danger">Start</button>
+		<div id="states-choropleth-container"></div>
+	</div>
+	<div class="article-content" id="sources">
+		<b>Sources</b><br>
+		Number of confirmed, active, recovered, and deaths retrieved from <a class="link" href="https://pypi.org/project/covid/">Covid Python package</a>.
+		<br>
+		U.S. COVID-19 data retrieved from <a class="link" href="https://github.com/nytimes/covid-19-data/blob/master/us.csv">New York Times Coronavirus (Covid-19) Data in the United States repository on GitHub</a>.
+		<br>
+		U.S. state-level COVID-19 data retrieved from <a class="link" href="https://github.com/nytimes/covid-19-data/blob/master/us-states.csv">New York Times Coronavirus (Covid-19) Data in the United States repository on GitHub</a>.
+	</div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script type="module" src="{{ url_for('static', filename='js/dashboard/us-line-graph.js')}}"></script>
+<script type="module" src="{{ url_for('static', filename='js/dashboard/states-choropleth.js')}}"></script>
+{% endblock %}

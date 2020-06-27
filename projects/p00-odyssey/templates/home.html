@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+{% for message in get_flashed_messages() %}
+<i>{{ message }}</i>
+<br>
+{% endfor %}
+<h2>
+  <hr>
+  <center>
+    <table>
+      <tr>
+	<td>
+	  <form action="/search">
+	    <label for="query">Search for a Story</label>
+	    <input type="text" name="query" required>
+	    <input type="submit" name="search-button" value="Search">
+	  </form>
+	</td>
+	<td><pre>   |   </pre></td>
+	<td>
+	  <form action="/createstory">
+	    <input type="submit" name="create-story-button" value="Create a New Story"/>
+	  </form>
+	</td>
+	<td><pre>   |   </pre></td>
+	<td>
+	  <form action="/uneditedstories" method="POST">
+	    <input type="submit" name="uneditedstories-button" value="Add to an Existing Story"/>
+	  </form>
+	</td>
+	<td><pre>   |   </pre></td>
+	<td>
+	  <form action="/logout">
+	    <input type="submit" name="logout-button" value="Log Out" />
+	  </form>
+	</td>
+      </tr>
+    </table>
+  </center>
+  <hr>
+</h2>
+<h2> Read Stories: </h2>
+{% if storiesEdited|length == 0 %}
+You have not contributed to any stories yet.
+<br>
+<br>
+{% else %}
+<h2>
+  {% for story in storiesEdited %}
+  <dl>
+    <dd>
+      {% set tmp = story[1] %}
+      {% if tmp | length > 29 %}
+      {% set tmp = tmp[:29] ~ "..." %}
+      {% endif %}
+      <pre><img src="/static/arrow.png" alt="-&gt" width="18">  [<a href="story/{{ story[0] }}">{{ tmp }}</a>]</pre>
+    </dd>
+  </dl>
+  {% endfor %}
+</h2>
+{% endif %}
+{% endblock %}

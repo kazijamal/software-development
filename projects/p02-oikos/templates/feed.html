@@ -1,0 +1,53 @@
+{% extends "logbase.html" %}
+
+{% block body %}
+<div class="content">
+     <h1 class="display-3" style="font-weight: 700; padding-left: 5vw; padding-top: 5vh;">What's happening?</h1>
+</div>
+
+<div class="row m-5">
+    <div class="col-md-6">
+        <ul>
+            <h2>Your Communities</h2>
+            <hr>
+            {% for post in communityposts %}
+            <div class="row" style="margin-left: 1vw; margin-right: 1vw; margin-top: 5vh;">
+                <div class="container bg-light border border-primary" style="padding: 2em; border-radius: 1em;">
+                    <div class="col">
+                        <h2>{{ post.title }}</h2>
+                        <h4><a href="community/{{ communityposts[post][1].communityID }}">{{ communityposts[post][1].name }}</a></h4>
+                        <h5> <i>{{ communityposts[post][0].displayName }}</i> : {{ post.timestamp }}<h5>
+                        <hr>
+                        <pre>{{ post.content }}</pre>
+                        <a href="/post/{{ post.postID }}" class="btn btn-warning">View post and comment</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <ul>
+            <h2>Your Friends' Timelines</h2>
+            <hr>
+            {% for post in timelineposts %}
+            <div class="row" style="margin-left: 1vw; margin-right: 1vw; margin-top: 5vh;">
+                <div class="container bg-light border border-primary" style="padding: 2em; border-radius: 1em;">
+                    <div class="col">
+                        <h2>{{ post.title }}</h2>
+                        <h5> <i>{{ timelineposts[post].displayName }}</i> : {{ post.timestamp }}<h5>
+                        <hr>
+                        <pre>{{ post.content }}</pre>
+                        <a href="/post/{{ post.postID }}" class="btn btn-warning">View post and comment</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

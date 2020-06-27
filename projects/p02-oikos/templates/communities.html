@@ -1,0 +1,70 @@
+{% extends "logbase.html" %}
+
+{% block body %}
+<div class="content">
+     <h1 class="display-3" style="font-weight: 700; padding-left: 5vw; padding-top: 5vh;">Communities</h1>
+</div>
+
+<div 
+class="container">
+<!-- Button trigger modal -->
+<div class="text-center">
+    <button type="button" class="btn btn-lg btn-outline-primary" data-toggle="modal" data-target="#newCommunityModal">
+        Create a New Community
+    </button>
+</div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="newCommunityModal" tabindex="-1" role="dialog" aria-labelledby="newCommunityModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">New Community</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="/newcommunity" method=POST>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input name="name" type="text" class="form-control" id="name"  placeholder="Enter name" required>
+                    </div>
+                    <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea name="description" rows="8" class="form-control" id="description" placeholder="Enter description" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-warning">Create</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <ul>
+        {% for community in communities %}
+        <div class="card my-3">
+            <h5 class="card-header">{{ community.name }}</h5>
+            <div class="card-body">
+                <p>{{ community.description }}</p>
+                <a href="/community/{{ community.communityID }}" class="btn btn-warning">View Community</a>
+                {% if communities[community] %}
+                <a href="/leavecommunity/{{ community.communityID }}" class="btn btn-danger">Leave this Community</a>
+                {% else %}
+                <a href="/joincommunity/{{ community.communityID }}" class="btn btn-success">Join this Community</a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

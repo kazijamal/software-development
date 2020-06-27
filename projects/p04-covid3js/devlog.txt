@@ -1,0 +1,261 @@
+TwoFortyNine -- Kazi Jamal, Eric Lau, and Raymond Lee
+SoftDev1 pd9
+P04 —- Let the Data Speak
+2020-05-04
+
+kaziJ -- 2020-04-22 11:15
+Team TwoFortyNine formed, chose Kazi Jamal as project manager, and initialized repo
+
+ericL -- 2020-04-24 10:46
+Reorganize repository structure
+
+ericL -- 2020-04-24 10:58
+Initialize basic Flask app
+
+ericL -- 2020-04-24 11:11
+Update README.md
+
+ericL -- 2020-04-25 07:29
+Implement basic MTA request
+
+ericL -- 2020-04-25 08:08
+Implement time loop for MTA requests
+
+ericL -- 2020-04-25 22:33
+Add data for New York City subways, maps
+Implement basic NYC map drawing
+
+kaziJ -- 2020-04-27 09:02
+Add unfinished version of design doc v0.
+
+rayL -- 2020-04-27 13:41
+Add number of coronavirus articles per day CSV file
+Add Flask route for data transfer to JS files
+
+rayL -- 2020-04-27 16:43
+Plot number of article per day on line chart
+
+ericL -- 2020-04-27 12:23
+Implement MTA data parsing algorithm
+
+ericL -- 2020-04-27 13:09
+Write comment explaining parsing file
+
+kaziJ -- 2020-04-28 02:40
+Add routes in app.py and create templates for viewable pages
+
+ericL -- 2020-04-28 02:42
+Fix majority of naming problems
+
+ericL -- 2020-04-28 03:18
+Merge stations with similar names
+
+kaziJ -- 2020-04-28 03:20
+Begin work on templates and create navbar
+
+kaziJ -- 2020-04-28 03:40
+Add organization and subheading to templates
+
+kaziJ -- 2020-04-28 04:00
+Add article previews on sentiment analysis and transportation pages.
+
+ericL -- 2020-04-28 05:19
+Tune algorithm to handle erroneous audit events
+Complete data writing to CSV file
+
+ericL -- 2020-04-28 06:28
+Complete data retrieval functions for ridership
+
+kaziJ -- 2020-04-28 14:05
+Add article preview images
+
+kaziJ -- 2020-04-28 14:42
+Move navbar into base template and add variability
+
+kaziJ -- 2020-04-28 22:05
+Create about page and route
+
+kaziJ -- 2020-04-29 23:00
+Teams who reviewed our design doc:
+- The-SIMPsons
+- MarshmallowFlush
+Summarized input:
+- Through data transfer systems
+- Listing additional features was nice
+- Extra packages can be expanded upon
+- Consider using SQLite database
+- Consider pulling turnstile data when it updates weekly
+Modifications to design doc:
+- Stated that we are currently looking for a medium income data source
+- Specified that we will be using sentiment analysis and natural processing Python libraries on the datasets
+- Stated that we will consider using GitHub Actions script that will run our processing file every weekend to update our MTA turnstile data CSV
+- Elaborated on extra packages
+Timeline adjustments:
+- We anticipated completing our project by 05-11-2020, and so we did not make any changes to our timeline. Our original additional features are sufficient.
+
+kaziJ -- 2020-05-01 10:00
+Create team flag and upload
+
+rayL -- 2020-05-01 21:00
+Create daily, monthly and weekly views for the line graph
+
+ericL -- 2020-05-02 03:21
+Remove mta_turnstile data from gitignore
+
+ericL -- 2020-05-02 05:26
+Implement daily ridership line graph
+
+ericL -- 2020-05-02 06:14
+Refactor data parsing functions
+
+ericL -- 2020-05-02 07:02
+Reorganize JavaScript files
+Create query functions for NYC COVID data
+
+ericL -- 2020-05-02 07:49
+Add references for D3 line graphs
+Create choropleth for COVID cases by zipcode
+
+ericL -- 2020-05-02 08:57
+Reorganize JavaScript files for transportation
+Add function comments
+
+ericL -- 2020-05-02 10:29
+Add transition between weekly and daily ridership
+Add legend and borders to choropleth
+
+ericL -- 2020-05-02 11:32
+Fix legend title
+Add tooltips to choropleth hover
+Add borough choropleth variation
+
+ericL -- 2020-05-02 11:54
+Implement animated line drawing
+
+kaziJ -- 2020-05-02 15:37
+Add favicon
+
+ericL -- 2020-05-04 11:55
+Fix line graph transition and curve smoothing
+
+ericL -- 2020-05-04 13:56
+Fix favicon resolution
+Create turnstile update script
+Refactor turnstile processing
+
+ericL -- 2020-05-06 07:32
+Implement template line graph
+Refactor MTA and public media line graphs
+
+ericL -- 2020-05-06 08:27
+Implement monthly views on line graph
+
+rayL -- 2020-05-06 10:00
+Create data for generated data on average subjectivity of news domains and generated data on polarity ranges of trump tweets starting from January 1, 2020
+Upload generation scripts for the aforementioned data
+
+ericL -- 2020-05-06 11:41
+Add tooltip to line graphs
+
+rayL -- 2020-05-06 12:25
+Create a draft of the TextBlob introduction QAF post on google doc and share with team
+
+kaziJ -- 2020-05-06 13:50
+Upload design doc v1 with a more detailed list of visualizations
+
+rayL -- 2020-05-06 20:43
+Finish creating a bar chart for subjectivity values of different new outlets related to COVID-19
+Fix folder structure
+Create starting template for scatterplot measuring polarity values of trump tweets
+
+kaziJ -- 2020-05-06 23:30
+Experiment using covid Python package to retrieve cases data for dashboard, and update requirements.txt
+
+ericL -- 2020-05-07 01:27
+Convert line graph functions to class
+
+ericL -- 2020-05-07 02:30
+Add second line graph
+
+ericL -- 2020-05-07 05:10
+Create borough split line graph
+
+ericL -- 2020-05-07 06:28
+Add y axis label
+
+ericL -- 2020-05-07 07:27
+Add percent decrease by borough
+
+ericL -- 2020-05-07 08:51
+Implement choropleth template
+
+ericL -- 2020-05-07 09:37
+Add coloring and geo-mapping to choropleth
+
+ericL -- 2020-05-07 10:31
+Add template legend to choropleth
+
+ericL -- 2020-05-07 14:05
+Add toggle to choropleth
+
+ericL -- 2020-05-07 15:06
+Add subway stop toggle
+
+ericL -- 2020-05-07 17:03
+Add subway station color mapping
+
+rayL -- 2020-05-07 19:20
+Implement scatterplot displaying variance in polarity (positive/negative) values of Trump tweets
+
+rayL -- 2020-05-07 19:30
+Apply a viridis color interpolator for the dots on the aforementioned scatterplot
+
+rayL -- 2020-05-07 19:55
+Create a barchart displaying different polarity range brackets that Trump's tweets fall under
+
+kaziJ -- 2020-05-07 22:50
+Create data retrieval routes for dashboard
+
+kaziJ -- 2020-05-07 23:45
+Create US cases and deaths line graph for dashboard
+
+kaziJ -- 2020-05-08 02:15
+Create legend for US cases and death line graph
+
+ericL -- 2020-05-09 04:12
+Add content and analysis to choropleth
+
+rayL -- 2020-05-07 19:55
+Create a barchart displaying different polarity range brackets that Trump's tweets fall under
+
+rayL -- 2020-05-09 15:19
+Add hover to trump tweets polarity scatter plot to show data points
+Show start and end date on trump tweets polarity scatter plot x-axis
+Make bar chart hover color opaque rather than red
+Make bar chart hover display text
+Try making trump tweets polarity bar chart colors go from blue to yellow like the scatter plot
+
+rayL -- 2020-05-09 18:32
+Generate named entities frequency data for the public media dataset
+Add generation script for aforementioned data
+
+rayL -- 2020-05-09 19:00
+Create wordcloud for named entities frequencies
+
+rayL -- 2020-05-09 19:33
+Help team create spaCy QAF post
+
+rayL -- 2020-05-09 20:47
+Improve wordcloud—change style
+
+kaziJ -- 2020-05-09 23:45
+Add sources to dashboard
+
+rayL -- 2020-05-09 23:48
+Add Trump tweets' analysis
+
+rayL -- 2020-05-10 01:00
+Format analyses
+
+kaziJ -- 2020-05-10 2:40
+Upload final design doc

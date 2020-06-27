@@ -1,0 +1,57 @@
+{% extends "basenav.html" %}
+
+{% block title %}Lucky Lotto Results{% endblock %}
+
+{% block body %}
+<div class="my-4 container text-center">
+  <h1>Lucky Lotto</h1>
+</div>
+
+<div id="lotto" class="my-5 container text-center">
+  {% if isWinner %}
+  <div class="alert alert-success" role="alert">
+    <h1 class="font-weight-bold">
+      🎰 🎰 🎰 YOU WON! 🎰 🎰 🎰
+    </h1>
+  </div>
+  {% else %}
+  <div class="alert alert-danger" role="alert">
+    <h1 class="font-weight-bold">
+      🎰 🎰 🎰 YOU LOST! 🎰 🎰 🎰
+    </h1>
+  </div>
+  {% endif %}
+      
+  <div class="row">
+    <div class="col-sm">
+	<img class="card-img-top" style="border: black solid 10px; border-radius: 10px;" src="{{ img1 }}" alt="slot">
+    </div>
+    <div class="col-sm">
+	<img class="card-img-top" style="border: black solid 10px; border-radius: 10px;" src="{{ img2 }}" alt="slot">
+    </div>
+    <div class="col-sm">
+	<img class="card-img-top" style="border: black solid 10px; border-radius: 10px;" src="{{ img3 }}" alt="slot">
+    </div>
+  </div>
+</div>
+
+
+{% if isWinner %}
+<div class="my-5 container text-center">
+  <form action="/lottoswitch" method="POST">
+    <input type="hidden" id="charID" name="charID" value="{{ charID }}">
+    <input type="hidden" id="charName" name="charName" value="{{ charName }}">
+    <input type="hidden" id="charImg" name="charImg" value="{{ img1 }}">
+    <button type="submit" class="btn btn-primary btn-lg">Switch Character to {{ charName }}</button>
+  </form>
+  <br>
+  <form action="/lottogold" method="POST">
+    <button type="submit" class="btn btn-warning btn-lg">Take 50 Gold Instead</button>
+  </form>
+</div>
+{% else %}
+<div class="my-5 container text-center">
+  <a href="/dashboard" class="btn btn-primary btn-lg">Return to Dashboard</a>
+</div>
+{% endif %}
+{% endblock %}

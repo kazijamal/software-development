@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Edit an existing Story{% endblock %}
+
+{% block body %}
+<center>
+  <h2>Edit an Existing Story</h2>
+  <h3>Click on one of these stories to edit them:</h3>
+  <!-- if no stories were edited before(length == 0), text shows that there are no edited stories -->
+  {% if storiesNotEdited|length == 0 %}
+  There are no stories you have not edited.
+  <br>
+  <br>
+  {% else %}
+  <!-- iterate through edited stories, and list links to their respective edit pages.
+       story[0] : storyID
+       story[1] : the title of the story
+    -->
+  <h2><pre><table>
+	{% for story in storiesNotEdited %}
+	<tr>
+	  {% set tmp = story[1]%}
+	  {% if tmp | length > 29 %}
+	  {% set tmp = tmp[:29] ~ "..." %}
+	  {% endif %}
+	  <pre><td><img src="/static/arrow.png" alt="-&gt" width="18"></td><td>&nbsp;&nbsp;[<a href="edit/{{story[0]}}">{{tmp}}</a>]</td></pre>
+	</tr>
+	{% endfor %}
+  </table></pre></h2>
+  {% endif %}
+</center>
+{% endblock %}

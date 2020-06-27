@@ -1,0 +1,33 @@
+{% extends "basenav.html" %}
+
+{% block title %}Trivia{% endblock %}
+
+{% block body %}
+  <div class="my-4 container text-center">
+    <h1>Intelligence Trivia</h1>
+    <p class="lead">Get 1 gold for every question answered correctly, and increase your intelligence stat</p>
+  </div>
+    <div class = "form-group">
+      <form action = "/triviaresults" method='POST'>
+        <ol>
+          {% for i in q %}
+              <li class="lead">{{i|safe}}</li>
+              <div class="form-check">
+              {% for j in o[i] %}
+                  <input required="true" class ="form-check-input" type='radio' value='{{j}}' name='{{i}}' />
+                  <label class="form-check-label"> {{j|safe}} </label>
+                  <br>
+              {% endfor %}
+              </div>
+              <br>
+          {% endfor %}
+          <br>
+        </ol>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success btn-lg">Submit</button>
+        </div>
+      </form>
+    </div>
+
+{% endblock %}
+cd

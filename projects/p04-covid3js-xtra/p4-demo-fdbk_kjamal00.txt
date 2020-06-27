@@ -1,0 +1,218 @@
+~~~ SoftDev 2020 Spring D3 Demo Feedback ~~~
+by
+Kazi Jamal
+
+
+team: TwoFortyNine
+-----------------------------------------------------------
+viewing time: THIS WAS MY TEAM
+notes:
+(+) 
+(-) 
+(*) 
+===========================================================
+
+
+team: The SIMPsons
+-----------------------------------------------------------
+viewing time: 22:05
+notes:
+(+) comedic
+(+) clear description of data visualizations
+(+) very detailed data visualizations that displays more graphs when clicking on part of the map
+(+) detailed description of sources
+(-) write descriptions or analyses for the graphs of economic impact
+(*) 
+===========================================================
+
+
+team: redesigned-telegram
+-----------------------------------------------------------
+viewing time: 22:12
+notes:
+(+) good options for user interaction
+(+) good job displaying the Flask console
+(-) could display the datasets and describe them more
+(-) video could be longer by experimenting with more combinations of options
+(*) 
+===========================================================
+
+
+team: Raduckal
+-----------------------------------------------------------
+viewing time: 22:16
+notes:
+(+) nice detailed info page
+(+) epic team flag
+(+) ethnicity chart looks interesting and is unique
+(+) nice search feature
+(-) ConCensus or ConSensus?
+(-) resize data visualizations to make them visible without scrolling
+(*) 
+===========================================================
+
+
+team: potato_monkeys
+-----------------------------------------------------------
+viewing time: 404 VIDEO NOT FOUND
+notes:
+(+) 
+(-) 
+(*) 
+===========================================================
+
+
+team: peterPickledPeppers
+-----------------------------------------------------------
+viewing time: 22:23
+notes:
+(+) interesting take action page
+(-) screen recording instead of recording your screen with a camera would be nice
+(-) explanation of the animations and data visualizations would be helpful
+(-) UI/UX could be more intuitive and user friendly
+(-) explain data sources
+(*) 
+===========================================================
+
+
+team: Mykolyangelo
+-----------------------------------------------------------
+viewing time: 22:27
+notes:
+(+) epic animated introduction
+(+) selecting time frames to change the x-axis scale is a great feature
+(+) good concise explanation of GraphQL usage
+(+) nice implementation of search feature
+(-) voices are a bit unclear and hard to understand at times
+(*) 
+===========================================================
+
+
+team: Mos and Friends
+-----------------------------------------------------------
+viewing time: 22:35
+notes:
+(+) intuitive and easy to use view data sets section
+(+) good job showing many options and combinations of choices
+(+) interesting create case study feature
+(+) nice implementation of users and authentication
+(-) could go through the features a bit slower to be more clear
+(-) describe data sources
+(*) 
+===========================================================
+
+
+team: Marshmallow Fluff
+-----------------------------------------------------------
+viewing time: 22:40
+notes:
+(+) good description of data sources
+(+) good explanation of features
+(+) cool and unique looking virus spread simulation
+(+) good user interactivity and many options
+(-) colors on web page are a bit hard to read
+(*) 
+===========================================================
+
+
+team: Kudoclasm
+-----------------------------------------------------------
+viewing time: 404 VIDEO NOT FOUND
+notes:
+(+) 
+(-) 
+(*) 
+===========================================================
+
+
+team: JEeBerS
+-----------------------------------------------------------
+viewing time: 22:49
+notes:
+(+) good options for user interactivity
+(+) spider plot was a unique choice
+(+) good inclusion of a Help/FAQs page
+(-) some CSS/styling choices make text difficult to read
+(*) 
+===========================================================
+
+
+team: ihatequarantine
+-----------------------------------------------------------
+viewing time: 22:53
+notes:
+(+) good options for user interactivity
+(+) dynamic table for each day is a nice touch
+(+) good explanation of data source
+(-) decrease density of information on page
+(-) add transitions to make changes in data visualizations smoother
+(*) 
+===========================================================
+
+
+team: I am not ok with this
+-----------------------------------------------------------
+viewing time: 22:58
+notes:
+(+) smooth animations
+(+) cool and unique options for user interaction
+(-) very technical description of application which is not appropriate for the intended audience
+(-) part of application is cut off in the video (the left side)
+(-) spending more time to explain the premise of the application would be helpful since the topic is a bit complex
+(*) 
+===========================================================
+
+
+team: Four Cs
+-----------------------------------------------------------
+viewing time: 23:04
+notes:
+(+) clear and concise description of data visualizations
+(+) animated line graph with search feature was nice
+(+) nice comparison feature
+(+) good description of data sources
+(-) data visualizations are very densely packed together, could be separated into pages
+(*) 
+===========================================================
+
+
+team: Eclipse
+-----------------------------------------------------------
+viewing time: 23:08
+notes:
+(+) unique and creative video idea
+(+) clear walkthrough of features
+(+) good options for user interactivity
+(-) showing the code is a bit technical for the intended audience
+(*) 
+===========================================================
+
+
+team: brimless yankee
+-----------------------------------------------------------
+viewing time: 23:14
+notes:
+(+) nicely designed application
+(+) clear descriptions and audio
+(+) good explanation of data source
+(+) easy to use and good UI/UX
+(-) having a navigation bar instead of multiple continue buttons could be useful
+(*) 
+===========================================================
+
+
+team: Bagel Pizza
+-----------------------------------------------------------
+viewing time: 23:31
+notes:
+(+) unique and creative video intro
+(+) clear walkthrough of features
+(+) nice clean styling
+(+) lots of good user interactivity
+(+) epic outro
+(-) explain data sources
+(*) 
+===========================================================
+
+
+

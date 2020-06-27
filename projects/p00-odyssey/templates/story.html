@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<h1>{{ title }}</h1>
+{% for edit in edits %}
+<p><pre>{{ edit[3] }}</pre></p>
+<h5>written by {{ edit[2] }} on {{ edit[4] }}</h5>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% set active_page = "transportation" %}
+
+{% block title %} NYC Public Transportation {% endblock %}
+
+{% block body %}
+
+<div class="content">
+	<div class="content">
+		<div class="article">
+			<h1 class="article-heading">NYC Public Transportation</h1>
+			<p class="article-subheading">Displays transportation changes in New York City during quarantine</p>
+			<div id="ridership-line-container"></div>
+			<div id="ridership-2020"></div>
+			<div id="ridership-borough"></div>
+			<div id="choro-container"></div>
+			<div class="article-content" id="sources" style="display: none;">
+				<b>Sources</b><br>
+				MTA turnstile data retrieved from the <a class="link" href="http://web.mta.info/developers/turnstile.html">official
+					MTA website</a>.
+				<br>
+				NYC COVID-19 case data retrieved from the <a class="link" href="https://github.com/nychealth/coronavirus-data">NYC
+					Department of Health repository on coronavirus on GitHub</a>.
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="https://unpkg.com/d3-interpolate-path/build/d3-interpolate-path.min.js"></script>
+<script type="module" src="{{ url_for('static', filename='js/mta/render/mta.render.js')}}"></script>
+{% endblock %}
