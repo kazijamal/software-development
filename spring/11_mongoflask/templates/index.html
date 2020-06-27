@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>K11 -- Ay Mon Go Git It From Yer Flask</title>
+  </head>
+  
+  <body>
+    <h1>Reddit /r/all</h1>
+    <form action="/searchsubreddit" method="POST">
+      <label for="subreddit">Search for posts from a subreddit</label><br>
+      <select name="subreddit">
+	{% for subreddit in subreddits %}
+	<option value={{ subreddit }}>{{ subreddit }}</option>
+	{% endfor %}
+      </select>
+      <input type="submit" value="Search">
+    </form>
+    <br>
+    <form action="/searchgreaterscore">
+      <label for="score">Search for posts with score greater than some score</label><br>
+      <input type="number" name="score" placeholder="Enter score here">
+      <input type="submit" value="Search">
+    </form>
+    <br>
+    <form action="/searchlesscrossposts">
+      <label for="crossposts">Search for posts with number of crossposts less than some number of crossposts</label><br>
+      <input type="number" name="crossposts" placeholder="Enter number of crossposts here">
+      <input type="submit" value="Search">
+    </form>
+    <br>
+    <form action="/searchgreaterequalcomments">
+      <label for="comments">Search for posts with number of comments greater than or equal to some number of comments</label><br>
+      <input type="number" name="comments" placeholder="Enter number of comments here">
+      <input type="submit" value="Search">
+    </form>
+    <br>
+    <form action="/searchgreaterscorecomments">
+      <p>Search for posts with score and number of comments greater than some score and number of comments</p>
+      <label for="score">Score:</label>
+      <input type="number" name="score" placeholder="Enter score here"><br>
+      <label for="comments">Comments:</label>
+      <input type="number" name="comments" placeholder="Enter number of comments here">
+      <input type="submit" value="Search">
+    </form>
+    <br>
+    <form action="/searchtitle">
+      <label for="title">Search for a post by title</label><br>
+      <input type="text" name="title" placeholder="Enter title here">
+      <input type="submit" value="Search">
+    </form>
+  </body>
+  
+</html>

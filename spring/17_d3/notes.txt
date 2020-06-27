@@ -1,0 +1,19 @@
+Why does the Let's Make a Bar Chart tutorial use:
+
+// Join the selection and the data, appending the entering bars.
+const barNew = barUpdate.join("div");
+
+but 01/index.html uses:
+
+//Instantiate new elements by appending to the “enter selection.”
+var barEnter = barUpdate.enter().append("div");
+
+--------------------
+
+Learn D3: By Example
+
+What is a Float64Array? We thought JavaScript was a dynamically typed language, so why is the floating point number type declared?
+- The Float64Array typed array represents an array of 64-bit floating point numbers (corresponding to the C double data type) in the platform byte order.
+
+What does d3.randomNormal() do?
+- Returns a function for generating random numbers with a normal (Gaussian) distribution. The expected value of the generated numbers is mu, with the given standard deviation sigma. If mu is not specified, it defaults to 0; if sigma is not specified, it defaults to 1.

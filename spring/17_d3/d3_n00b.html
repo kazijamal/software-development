@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--D3 demo: hardcoded bars removed, to be generated fr data-->
+<!--
+    Can yield a horizontal bar chart if properly bound to data
+    (steelblue bars, white number overlays)
+    ...but will yield only blank page at first.
+  -->
+<!--
+Kevin Cai and Kazi Jamal -- Team King Kong
+SoftDev2 pd9
+2020-04-08    
+-->
+
+<style>
+    .chart div {
+        font: 10px sans-serif;
+        background-color: steelblue;
+        text-align: right;
+        padding: 3px;
+        margin: 1px;
+        color: white;
+    }
+</style>
+
+<body>
+    <div class="chart"></div>
+</body>
+
+<script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+<script src="d3.js"></script>
+
+<!--------------------------------
+    Entering the following commands via console will 
+    incrementally re-create your hardcoded chart...
+
+    //Init your data:
+    var data = [4, 8, 15, 16, 23, 42];
+
+    //Select your chart.
+    var chart = d3.select(".chart");
+
+    //Prepare for data join.
+    var bar = chart.selectAll("div");
+
+    (this defines selection to which you will join data)
+
+    //Join your data.
+    var barUpdate = bar.data(data);
+
+    //Instantiate new elements by appending to the “enter selection.”
+    var barEnter = barUpdate.enter().append("div");
+
+    //Set width of each bar proportional to its data value.
+    barEnter.style("width", function(d) {
+    return d * 10 + "px"; });
+
+    //Label each bar.
+    barEnter.text(function(d) { return d; });
+  -------------------------------->
+
+<!--
+Observations:
+- d3.select() returns an object with a _groups and _parents array
+- selectAll() returns an object with a _groups and _parents array
+- data() with the data argument returns an object with _groups, _parents, _enter, and _exit arrays
+- enter().append() returns an object with a _groups and _parents array
+- enter().append() is the first time we see anything in the HTML page, and it is a div of equal length for each element in the data array
+- when using style(), the argument d is the specific piece of data or element of the data array
+- style() made the bars change size
+- when using text(), the argument d is the specific piece of data or element of the data array
+- text() added a text label of the data for each bar
+-->

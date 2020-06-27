@@ -126,12 +126,3 @@ ehthumbs.db
 # Filenames with special characters
 **/*[\\/\:;*?!'"<>|$º•¶§∞¢£]*
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# Visual Studio Code
-.vscode
-
-# Project Files
-!__init__.py
-oauth-client.json
-gmail.json
-site.db

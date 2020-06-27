@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- D3-minified -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/style.css')}}"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>K18: Come Up For Air</title>
+  </head>
+  <body>
+    <h1>The Rise of COVID-19 Cases in the U.S.</h1>
+    <h2>Team patient0</h2>
+    <h2>Date: <span id="date">2020-01-21</span></h2>
+    <button id="render-btn">Render</button>
+    <button id="start-btn">Start</button>
+    <div id="map"></div>
+
+    <!-- Flask app script -->
+    <script
+      src="{{ url_for('static', filename='js/script.js')}}"
+      type="module"
+    ></script>
+  </body>
+</html>
